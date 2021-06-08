@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            'a' : 1,
+            'b' : 2,
+        }
+        console.log(Object.getOwnPropertyDescriptor(obj,'a'));
+        console.log(Object.getOwnPropertyDescriptors(obj));
+        Object.defineProperty(obj,'a',{
+            value : 'pws',
+            configurable :false,
+            enumerable : false,
+            writable : false,//赋值不报错，但不生效
+        });
+        for (const key in obj) {
+            if (Object.hasOwnProperty.call(obj, key)) {
+                console.log(key);
+            }
+        }
+        console.log(Object.keys(obj));
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./../lodash.js"></script>
+    <script>
+        console.log(_.countBy(['one','two','three'],'length')); 
+                //统计数组中数据的长度，返回结果为{ 3 : 2 , 5 : 1}
+        console.log(_.groupBy(['one','two','three'],'length'));
+                //根据长度划分并返回一个对象，键值对为长度及其对应的项；
+
+    </script>
+</body>
+</html>

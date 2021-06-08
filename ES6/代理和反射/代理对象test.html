@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script>
+        const obj = {
+            'a': 1,
+            'b': 2,
+        }
+        //ES5实现
+        // function Obsever(target) {
+        //     function render() {
+        //         let html = '';
+        //         for (const elem in target) {
+        //             html += `
+        //             <p><span>${elem}</span>: <span>${target[elem]};</span></p>
+        //             `
+        //         }
+        //         const div = document.getElementsByTagName('div')[0];
+        //         div.innerHTML = html;
+        //     }
+        //     let ob = {};
+        //     const keys = Object.keys(target)
+        //     for (const item of keys) {
+        //         Object.defineProperty(ob, item, {
+        //             enumerable: true,
+        //             set(value) {
+        //                 obj[item] = value;
+        //                 render();
+        //             },
+        //             get(value) {
+        //                 return target[item];
+        //             }
+        //         })
+        //     }
+        //     console.log(ob)
+        //     render();
+        //     return ob;
+
+        // }
+
+        // const obsever = Obsever(obj);
+        //ES6实现
+        function newObsever(target) {
+            function render() {
+                const div = document.getElementsByTagName('div')[0];
+                const keys = Object.keys(target);
+                let html = '';
+                for (const item of keys) {
+                    html += `<p><sapn>${item} : </span><span>${target[item]}</span></p>`;
+                }
+                div.innerHTML = html;
+            }
+            render();
+            return new Proxy(target,{
+                set(target,prop,value) {
+                    Reflect.set(target,prop,value);
+                    render();
+                },
+                get(target,prop){
+                    return Reflect.get(target,prop);
+                }
+            })
+        } 
+        let newobsever = newObsever(obj);
+
+    </script>
+</body>
+
+</html>

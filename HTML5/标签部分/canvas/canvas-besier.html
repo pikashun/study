@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500px" height="500px"></canvas>
+    <script>
+        var can = document.getElementsByTagName('canvas')[0];
+        var cxt = can.getContext('2d');
+        cxt.beginPath();
+        cxt.moveTo(100,100)
+        cxt.quadraticCurveTo(200,200,300,100);
+        cxt.quadraticCurveTo(400,0,500,100);
+        cxt.stroke();
+    </script>
+</body>
+</html>

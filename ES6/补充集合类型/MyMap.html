@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Mymap{
+            constructor(iterator) {
+                this._data = [];
+                if(typeof (iterator[Symbol.iterator]) !== 'function'){
+                    throw new Error(`this ${iterator} is not a iterator`)
+                }
+                for (const item of iterator) {
+                    if(item[Symbol.iterator !== 'function']){
+                        throw new Error(`this ${iterator} is not useable `);
+                    }
+                    const ite = item[Symbol.iterator]();
+                    const key = ite.next().value;
+                    const value = ite.next().value;
+                    this.set(key,value);
+                }
+            }
+            set(key,value) {
+                if(this.has(key)){
+                    this._data[key] = value;
+                }else{
+                    this._data.push({key,value});
+                }
+                
+            }
+            getKeys(iterator) {
+                const keys = [];
+                for (const item of iterator) {
+                    const key = item.key;
+                    keys.push(key);
+                }
+                console.log(keys);
+                return keys;
+            }
+            has(key) {
+                for (const item of this._data) {
+                    if(Object.is(key,item.key)){
+                        return true;
+                    }
+                }
+            }
+        }
+        const arr = [['a',1],['b',2],['a',4]];
+        const a = new Mymap(arr);
+        console.log(a);
+    </script>
+    
+</body>
+</html>

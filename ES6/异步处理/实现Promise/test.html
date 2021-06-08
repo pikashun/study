@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const Mypromise = ((executor) => {
+            const PENDING = 'pending';
+            const FULFILLED = 'fulfilled';
+            const REJECTED = 'rejected';
+            const status = Symbol('PromiseStatus');
+            const result = Symbol('PromiseResult');
+            return class {
+                fulfilledCallback = [];
+                rejectedCallback = [];
+                value = null;
+                reason = null;
+                constructor(executor) {
+                    this[status] = PENDING;
+                    executor(this.resolve,this.reject);
+                }
+                resolve = (value) => {
+                    if(this[status] !== PENDING){
+                        return;
+                    }else{
+                        this[status] = FULFILLED;
+                        this[result] = value;
+                        this.fulfilledCallback.forEach(elem => {
+                            elem(this[result]);
+                        });
+                    }
+                }
+                reject = (reason) => {
+                    if(this[status] !== PENDING){
+                        return;
+                    }else{
+                        this[status] = REJECTED;
+                        this[result] = reason
+                        this.rejectedCallback.forEach(elem => {
+                            elem(this[result]);
+                        })
+                    }
+                }
+                then = (onResolve,onRejecte) => {
+
+                    if(this[status] === FULFILLED){
+                        onResolve(this[result]);
+                    }else if(this[status] === REJECTED){
+                        onRejecte(this[result]);
+                    }else if(this[status] === PENDING){
+                        this.fulfilledCallback.push(onResolve);
+                        this.rejectedCallback.push(onRejecte);
+                    }
+                }
+            }
+        })();
+        const pro = new Mypromise((resolve,reject) => {
+            setTimeout(() => {
+                resolve(1);
+            }, 1000);
+        })
+        pro.then(res => {
+            console.log(res);
+        },reject => {
+            console.log(res)
+        })
+        console.log(pro)
+    </script>
+</body>
+</html>

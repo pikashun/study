@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- integrity : 属性值为加密的哈希值，防止cdn的恶意请求 -->
+    <style>
+        .pws div {
+            width: 5rem;
+            height: 5rem;
+            background: #999;
+        }
+    </style>
+</head>
+
+<body style="height: 1500px;">
+    <div class="container">
+        <div class="row pws d-block">
+            <!-- 
+                弹性盒模型下 浮动。定位都无效
+                清除浮动用class="clearfix"
+                响应式设置 ： float-md-left；
+            -->
+            <div class="float-left">左浮动</div>
+            <div class="float-right">右浮动</div>
+        </div>
+        <!-- 关闭图标 -->
+        <div class="row mt-2 clearfix">
+            <button class="close">
+                <span>&times;</span>
+            </button>
+        </div>
+        <!-- 
+            图像替换
+            用于浏览器识别，增强SEO
+         -->
+        <div class="row mt-5">
+            <h1 class="text-hide"
+                style="background-image: url('https://getbootstrap.com/docs/4.6/assets/brand/bootstrap-solid.svg'); width: 50px; height: 50px;">
+                Bootstrap
+            </h1>
+        </div>
+        <!-- 内容溢出 -->
+        <div class="row mt-4">
+            <div class="overflow-auto" style="width: 7rem;height: 7rem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo corporis atque voluptate, magnam amet quas, accusantium repudiandae facilis quod, cupiditate aperiam perspiciatis animi harum. Provident repellat molestiae at rerum nisi!</div>
+            <div class="overflow-hidden" style="width: 7rem;height: 7rem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, incidunt! Explicabo tenetur rem aliquid error officia in odit eius modi.</div>
+        </div>
+        <!-- 
+            定位 ： 修改position- + 定位方式 ；如：position-absolute；
+                粘性定位 ： position-sticky；
+                            滚动滚动条，视口高度到达元素时，元素变为紧贴视口上方定位
+                            该元素只能放在body直接子元素里才能生效
+                            必须设置相对top或者bottom的值才能生效
+                            兼容性很差
+         -->
+        <div class="row">
+            
+        </div>
+
+    </div>
+    <div class="position-sticky" style="top: 20px">
+        粘性定位
+    </div>
+    <!-- 
+        阴影
+     -->
+     <div class="row mt-4 justify-content-around">
+         <div class="bg-light rounded p-3 shadow-none">无阴影</div>
+         <div class="bg-light rounded p-3 shadow-sm">小阴影</div>
+         <div class="bg-light rounded p-3 shadow">正常阴影</div>
+         <div class="bg-light rounded p-3 shadow-lg">大阴影</div>
+     </div>
+     <!-- 
+         尺寸：
+            w-25 ： 宽度为25%
+            共有5种 ： w-25,w-50,w-75,w-100,w-auto
+            高度类似 ： h-25,h-50,h-75,h-100,h-auto
+            mw,mh表示max-width，max-height
+      -->
+      <!-- 
+          间距： 
+            m- ： margin
+            p- : padding
+            t- : top
+            r- : right
+            b- : bottom
+            l- : left
+            x- : 水平方向
+            y- ：垂直方向
+
+            0 : 0
+            1 : .25rem
+            2 : .5rem
+            3 : 1rem
+            4 : 1.5rem
+            5 : 3rem
+            auto : auto
+            响应式设置 ： aside-breakpoint-value ；如mt-md-5；
+
+       -->
+       <!-- 
+           文字 :
+                text-justify： 两端对齐居中，响应式： text-md-justify;
+                text-left
+                text-right
+                text-center
+                text-nowrap
+                text-lowercase : 所有字母都小写
+                text-uppercase ： 所有字母都大写
+                text-capitalize ： 每个单词首字母大写
+                font-weight-bold
+                font-weight-bolder
+                font-weight-normal
+                font-weight-light
+                font-weight-lighter
+                font-italic
+                font-monospace ： 等宽的字体
+            垂直对齐方式
+                align-baseline
+                align-top
+                align-middle
+                align-bottom
+                align-text-top
+                align-text-bottom
+            可见性
+                visible ：可见
+                invisible ： 不可见，占据空间
+                d-none ： 不可见，不占空间
+        -->
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

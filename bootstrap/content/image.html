@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- integrity : 属性值为加密的哈希值，防止cdn的恶意请求 -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- 响应式图片 增加class="img-fluid"可让图片变成响应式-->
+            <img class="img-fluid" src="./../../../../image/奇诺比珂.png" alt="">
+
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+
+                <!-- 缩略图 -->
+                <img src="./../../../../image/奇诺比珂.png" class="img-thumbnail" alt="">
+
+            </div>
+            <div class="col-md-4">
+                <!-- 响应式 圆角 -->
+                <img src="./../../../../image/奇诺比珂.png" class="img-fluid rounded" alt="">
+
+            </div>
+        </div>
+        <!-- 图片对齐方式 图片自身对齐 增加class为float-left或者float-right-->
+        <div class="row mt-4">
+            <div class="col">
+                <img src="./../../../../image/奇诺比珂.png" class="float-left" style="width : 200px" alt="">
+                <img src="./../../../../image/奇诺比珂.png" class="float-right" style="width : 200px" alt="">
+
+            </div>
+        </div>
+        <!-- 图片对齐方式，通过父级对齐 -->
+        <div class="row mt-4 text-center">
+            <div class="col">
+                <img src="./../../../../image/奇诺比珂.png" style="width : 200px" alt="">
+                <img src="./../../../../image/奇诺比珂.png" style="width : 200px" alt="">
+            </div>
+        </div>
+        <!-- 单个图片自己居中，先增加class为block 再margin为auto -->
+        <div class="row mt-4">
+            <div class="col">
+                <img src="./../../../../image/奇诺比珂.png" class="d-block" style="width : 200px;margin : auto" alt="">
+            </div>
+        </div>
+        <!-- 
+            picture标签 固定结构 控制不同尺寸屏幕下的图片质量 
+            webp格式，针对网页的图片格式，图片体积小，但清晰度下降不明显，ie不支持iOS9.3或android4.3以上支持
+        -->
+        <div class="row">
+            <picture>
+                <source media="(min-width : 1200px)" srcset="./../../../../image/奇诺比珂.png">
+                <source media="(min-width : 992px)" srcset="./../../../../image/奇诺比奥.png">
+                <source media="(min-width : 768px)" srcset="./../../../../image/马里奥.png">
+                <source media="(min-width : 576px)" srcset="./../../../../image/路易基.png">
+                    <img style="width: 200px;" src="./../../../../image/Mario.png" alt=""><!-- 尺寸小于567时使用该图片 -->
+            </picture>
+        </div>
+        <!--  -->
+    </div>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

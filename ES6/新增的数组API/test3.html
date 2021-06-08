@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        img {
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img class="image" src="./Mario.png" alt="">
+        <button>切换</button>
+        <canvas width="200" height="100"></canvas>
+    </div>
+    <script>
+
+        const btn = document.getElementsByTagName('button')[0];
+        btn.onclick = () => {
+
+            const can = document.getElementsByTagName('canvas')[0];
+            const img = document.querySelector('.image');
+            const ctx = can.getContext('2d');
+            ctx.scale(0.175,0.175);
+            ctx.drawImage(img, 0, 0);
+            const imgData = ctx.getImageData(0, 0, img.width, img.height);
+            console.log(imgData.data)
+            for(let i = 0;i < imgData.data.length;i += 4){
+                const r = imgData.data[i];
+                const g = imgData.data[i + 1];
+                const b = imgData.data[i + 2];
+                const avr = (r + g + b)/3;
+                imgData.data[i] = imgData.data[i + 1] = imgData.data[i + 2] = avr;
+            }
+            ctx.putImageData(imgData,0,0);
+        }
+        //接收二进制文件
+        async function getImg() {
+            const imgData = await fetch('./Mario.png');
+            console.log(imgData);
+            const blob = await imgData.blob();
+            console.log(blob);
+            const bf = await blob.arrayBuffer();
+            console.log(bf);
+            const arr = new Int8Array(bf);
+            console.log(arr);
+        }
+    </script>
+</body>
+
+</html>

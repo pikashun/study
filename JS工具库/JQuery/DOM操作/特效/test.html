@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            height: 25px;
+            margin-top: 10px;
+            background: lightseagreen;
+            outline: none;
+            border: none;
+            line-height: 25px;
+        }
+        img{
+            width: 200px;
+            height: 300px;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid red;
+            position: relative;
+            background: #ccc;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 显示隐藏特效 -->
+    <button id="hide">隐藏</button>
+    <button id="show">显示</button>
+    <button id="toggle">显示/隐藏切换</button>
+    <!-- 滑动特效 -->
+    <br>
+    <button id="slideUp">滑动隐藏</button>
+    <button id="slideDown">滑动显示</button>
+    <button id="slideToggle">滑动切换</button>
+    <br>
+    <!-- 渐变特效 -->
+    <button id="fadeIn">渐变隐藏</button>
+    <button id="fadeOut">渐变显示</button>
+    <button id="fadeToggle">渐变切换</button>
+    <button id="fadeTo">透明度变化</button>
+    <button id="fadeToNomal">透明度恢复</button>
+    <!-- 自定义特效 -->
+    <br>
+    <button id="animate">自定义特效</button>
+    <br>
+    <!-- 链式特效 -->
+    <button id="link">链式特效</button>
+    <br>
+    <!-- 控制动画 -->
+    <button id="stop">暂停动画</button>
+    <button id="finish">完成动画</button>
+    <!-- 下拉展开 -->
+    <br>
+    <button id="menu">下拉隐藏</button>
+    <button id="menu1">下拉展开</button>
+
+    <div>
+        <img src="./奇诺比奥.png" alt="">
+    </div>
+
+
+
+
+    <script src="./jquery-3.5.1.js"></script>
+    <script>
+        $('#hide').click(function() {
+            // $('img').hide('fast');
+            // $('img').hide('fast');
+            $('img').hide(2000,function() {
+                console.log('隐藏完成触发此方法');
+            });//2秒完成隐藏；
+
+        })
+        $('#show').click(function() {
+            // $('img').hide('fast');
+            // $('img').hide('fast');
+            $('img').show(2000,function() {
+                console.log('显示完成触发此方法');
+            });//2秒完成显示；
+
+        })
+        $('#toggle').click(function() {
+            // $('img').hide('fast');
+            // $('img').hide('fast');
+            $('img').toggle(2000,function() {
+                console.log('切换完成触发此方法');
+            });//2秒完成切换；
+
+        })
+        $('#slideUp').click(function() {
+            // $('img').hide('fast');
+            // $('img').hide('fast');
+            $('img').slideUp(2000,function() {
+                console.log('滑动隐藏完成触发此方法');
+            });//2秒完成滑动隐藏；
+        })
+        $('#slideDown').click(function() {
+            // $('img').hide('fast');
+            // $('img').hide('fast');
+            $('img').slideDown(2000,function() {
+                console.log('滑动显示完成触发此方法');
+            });//2秒完成滑动显示；
+        })
+        $('#slideToggle').click(function() {
+            // $('img').hide('fast');
+            // $('img').hide('fast');
+            $('img').slideToggle(2000,function() {
+                console.log('滑动切换完成触发此方法');
+            });//2秒完成滑动切换；
+        })
+        $('#fadeIn').click(function() {
+            // $('img').hide('fast');
+            // $('img').hide('fast');
+            $('img').fadeIn(2000,function() {
+                console.log('渐变显示完成触发此方法');
+            });//2秒完成渐变显示；
+        })
+        $('#fadeOut').click(function() {
+            // $('img').hide('fast');
+            // $('img').hide('fast');
+            $('img').fadeOut(2000,function() {
+                console.log('渐变隐藏完成触发此方法');
+            });//2秒完成渐变隐藏；
+        })
+        $('#fadeToggle').click(function() {
+            // $('img').hide('fast');
+            // $('img').hide('fast');
+            $('img').fadeToggle(2000,function() {
+                console.log('渐变切换完成触发此方法');
+            });//2秒完成渐变切换；
+        })
+        $('#fadeTo').click(function() {
+            // $('img').hide('fast');
+            // $('img').hide('fast');
+            $('img').fadeTo(2000,0.3,function() {
+                console.log('透明度变化完成触发此方法');
+            });//2秒完成透明度变化；
+        })
+        $('#fadeToNomal').click(function() {
+            // $('img').hide('fast');
+            // $('img').hide('fast');
+            $('img').fadeTo(2000,1,function() {
+                console.log('透明度恢复完成触发此方法');
+            });//2秒完成透明度恢复；
+        })
+        $('#animate').click(function() {
+            $('img').animate({
+                //选择运动属性；
+                width : 100,
+                left : '+=50',
+                height : 'toggle',
+                'border-radius' : 50, 
+            },1000,function() {
+                console.log('运动完成的回调函数');
+            })
+        })
+        //可链式操作；
+        $('#link').click(function() {
+            $('img').animate({width : 100},1000,function() {console.log('第一次变化完成')})
+            .delay(1000)//让后面的动画延时1秒后继续’
+            .animate({height : 200},1000,function() {console.log('第二次变化完成')})
+            .delay(1000)
+            .animate({opacity : 0.5},1000,function() {console.log('第三次变化完成')});
+        })
+        $('#stop').click(function() {
+            $('img').stop();
+        })//无回调函数
+        $('#finish').click(function() {
+            $('img').finish();
+        })//动画立即完成
+        $('#menu').click(function() {
+            $('img').animate({
+                height : 0,
+                padding : 0,
+                border : 0
+            })
+        });
+        $('#menu1').click(function() {
+            $('img').animate({
+                height : 258,
+                padding : 20,
+                border : 1
+            })
+        })
+    
+    
+    </script>
+
+</body>
+</html>

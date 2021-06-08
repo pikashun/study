@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text">
+    <script>
+        
+        //函数防抖 ：debounce9
+        var Time;
+        function debounce(callback,time){
+            var timer;
+            return function() {
+                clearTimeout(timer);
+                var arg = arguments;
+                timer = setTimeout(function() {
+                        callback.apply(null,arg);
+                },time);
+            }
+        }
+            
+        var handle = debounce(function(width) {
+                    console.log(width);
+                },1000);
+        window.onresize = function() {
+            handle(document.documentElement.clientWidth);
+        };
+        var inp = document.getElementsByTagName('input')[0];
+        
+        var result = debounce(function(val) {
+                console.log('搜索' + val)
+            },1000);
+        inp.oninput = function() {
+            result(this.value);
+        }
+
+        //函数节流 ： 保证一个时间段内只执行一次，throttle;
+        function throttle(time) {
+            var timer;
+            return function() {
+                if(timer){
+                    return;
+                }
+                timer = setTimeout(function() {
+                    console.log('2');
+                    timer = null;
+                },time);
+            }
+        }
+        var test = throttle(500);
+        test();
+        test();
+        test();
+        test();
+        test();
+        test();
+
+
+    </script>
+</body>
+</html>

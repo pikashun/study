@@ -1,0 +1,117 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    background: #eee;
+}
+body{
+    overflow: hidden;
+}
+h4{
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 70px;
+    text-align: left;
+    line-height: 70px;
+    background: lightblue;
+    padding-left: 20px;
+}
+.login-content{
+    position: absolute;;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: calc(100vh - 50px);
+}
+.login{
+    border-radius: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 50px;
+    box-shadow: 1px 1px 1px 1px #999;
+}
+.login p{
+    margin: 10px 0;
+    text-align: center;
+}
+.login span{
+    font-size: 17px;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    text-align: center;
+    width: 50px;
+    background: rgb(238, 238, 238);
+}
+.login p.head::after{
+    content: "";
+    display: block;
+    width: 250px;
+    border-bottom: 1px solid #999;
+    position: relative;
+    left: 25px;
+    top: -10px;
+}
+.login label{
+    margin: 20px;
+    text-align: right;
+    display: inline-block;
+    width: 50px;
+    font-size: 14px;
+}
+.login input{
+    border: 1px solid #999;
+    height: 25px;
+    background: #fff;
+    outline: none;
+    border-radius: 2px;
+}
+
+.login p.link{
+    text-align: right;
+    padding-right: 40px;
+}
+.login p a{
+    font-size: 12px;
+}
+.login button{
+    padding: 5px 20px;
+    position: relative;
+    left: 115px;
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+.login button:hover{
+    cursor: pointer;
+    background: #ddd;
+}
+.regestered-content{
+    position: absolute;
+    left: 0;
+    top: 1000px;
+    width: 100%;
+    height: 1000px;
+    overflow: hidden;
+}
+.regestered-content::before{
+    content: "";
+    display: block;
+}
+span#regestered,span#login{
+    display: block;
+    height: 100px;
+}
+body div.regestered-content div label{
+    margin: 10px 20px;
+    width: 60px;
+    font-size: 14px;
+}
+

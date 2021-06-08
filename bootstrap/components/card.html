@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- integrity : 属性值为加密的哈希值，防止cdn的恶意请求 -->
+    <style>
+        body {
+            padding-bottom: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- card : 3.x版本没有，可用来布局，card里面可以放任意元素和结构 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-tittle">标题</div>
+                        <dvi class="card-subtittle">副标题</dvi>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <!-- 对图片的说明，img放在body外面 -->
+                <div class="card">
+                    <img class="card-img-top" src="./../../../../image/奇诺比珂.png" alt="">
+                    <div class="card-body">
+                        <p class="card-text">奇诺比珂：这是图片说明</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 混合 -->
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">页眉</div>
+                    <img src="././../../../../image/奇诺比珂.png" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">标题</h5>
+                        <div class="card-text">这里是描述</div>
+                        <a href="#" class="card-link btn btn-danger">链接</a>
+                        <a href="#" class="card-link btn btn-warning">链接2</a>
+
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">这是列表文字</li>
+                        <li class="list-group-item">这是列表文字</li>
+                        <li class="list-group-item">这是列表文字</li>
+                    </ul>
+                    <div class="card-footer">页脚</div>
+                </div>
+            </div>
+        </div>
+        <!-- 典型应用 可用text-center改变文字水平排列属性 -->
+        <div class="row">
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-header">页眉</div>
+                    <div class="card-body">
+                        <div class="card-title">标题</div>
+                        <p class="card-text">这里是说明性的文字</p>
+                        <a href="#" class="card-link btn btn-primary">链接</a>
+                    </div>
+                    <div class="card-footer">页脚</div>
+                </div>
+            </div>
+        </div>
+        <!-- 导航 -->
+        <div class="row mt-5">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active">first</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">second</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">third</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">fourth</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">this is direction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 
+            图像 
+            卡片也可利用bg-*设置背景颜色
+        -->
+        <div class="row mt-5">
+            <div class="card">
+                <div class="card-img-overlay">
+                    <p class="card-text">这是小红</p>
+                </div>
+                <img src="./../../../../image/奇诺比珂.png" alt="" class="card-img">
+            </div>
+        </div>
+        <!-- 
+            卡片排版 卡片组
+            外层用div包裹,class为
+                    card-group ： 无间隙排版
+                    card-deck ： 有间隙排版
+                    card-colum : 瀑布流排版
+         -->
+        <div class="row mt-4">
+
+            <div class="card-group">
+                <div class="card">
+                    <img class="card-img-top" src="./../../../../image/奇诺比珂.png" alt="">
+                    <div class="card-body">
+                        <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore mollitia quas qui voluptas ipsam quis exercitationem aut? Maiores, dolorem ea.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="./../../../../image/奇诺比珂.png" alt="">
+                    <div class="card-body">
+                        <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore mollitia quas qui voluptas ipsam quis exercitationem aut? Maiores, dolorem ea.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="./../../../../image/奇诺比珂.png" alt="">
+                    <div class="card-body">
+                        <div class="card-text">Lorem ipsum dolor sit amet consectetur.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="./../../../../image/奇诺比珂.png" alt="">
+                    <div class="card-body">
+                        <div class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, nihil iusto, tempore dolore quisquam animi voluptates totam amet quae fugit illum hic, voluptate necessitatibus excepturi! Dolore distinctio eveniet vero non? Lorem ipsum dolor sit amet consectetur.</div>
+                    </div>
+                </div>
+            </div>
+            <!-- 带间隙的排版方式 -->
+            <div class="card-deck">
+                <div class="card">
+                    <img class="card-img-top" src="./../../../../image/奇诺比珂.png" alt="">
+                    <div class="card-body">
+                        <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore mollitia quas qui voluptas ipsam quis exercitationem aut? Maiores, dolorem ea.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="./../../../../image/奇诺比珂.png" alt="">
+                    <div class="card-body">
+                        <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore mollitia quas qui voluptas ipsam quis exercitationem aut? Maiores, dolorem ea.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="./../../../../image/奇诺比珂.png" alt="">
+                    <div class="card-body">
+                        <div class="card-text">Lorem ipsum dolor sit amet consectetur.</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src="./../../../../image/奇诺比珂.png" alt="">
+                    <div class="card-body">
+                        <div class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, nihil iusto, tempore dolore quisquam animi voluptates totam amet quae fugit illum hic, voluptate necessitatibus excepturi! Dolore distinctio eveniet vero non? Lorem ipsum dolor sit amet consectetur.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

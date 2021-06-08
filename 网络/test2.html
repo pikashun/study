@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    test
+    <iframe src="./../../../新建文件夹/test3.html" frameborder="1"></iframe>
+    <script>
+        var ifr = document.getElementsByTagName('iframe')[0];
+        console.log(ifr.contentWindow);
+        //contentWindow;返回iframe元素的window对象，可借此访问iframe的内部文档和dom
+        function aa(data){
+            console.log(data);
+        }
+        var script = document.createElement('script');
+        script.src = 'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=33423,33580,33258,33273,33571,33162,33321,33544&wd=bao&req=2&csor=3&pwd=ba&cb=aa&_=1612536210683'
+        document.body.appendChild(script);
+    </script>
+</body>
+</html>

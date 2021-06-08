@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media (max-width: 600px){/* 视口宽度小于600px时生效 */
+            div{
+                /* display: none; */
+                font-size: 50px;
+            }
+            div::after{
+                content: '我喜欢你啊.';
+                font-size: 50px;
+                width: 500px;
+                height: 100px;
+                display: inline-block;
+
+            }
+
+        }
+        @media (orientation : portrait){/* 视口宽度小于高度时生效 */
+            
+            div{
+                /* display: none; */
+                font-size: 30px;
+            }
+            div::after{
+                content: '我喜欢你啊.';
+                font-size: 30px;
+                width: 500px;
+                height: 100px;
+                display: inline-block;
+
+            }
+
+        }
+        @media print{/* 设备为打印机时时生效 */
+            div{
+                /* display: none; */
+                font-size: 50px;
+            }
+            div::after{
+                content: '我喜欢你啊.';
+                font-size: 50px;
+                width: 500px;
+                height: 100px;
+                display: inline-block;
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        陈思齐
+    </div>
+</body>
+</html>

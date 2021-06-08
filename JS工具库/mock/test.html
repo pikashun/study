@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.color{
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div class="color"></div>
+    <script src="./mock.js"></script>
+    <script>
+        //1,属性值是字符串 string类型；
+        console.log(
+            Mock.mock({
+                'data1|2-5' : '小彭同学',//字符串随机重复规定范围的次数
+                'data2|3' : '皮卡顺',//字符串重复三次；
+            })
+        );
+        //2，属性值是数字 number类型；
+        console.log(
+            Mock.mock({
+                'number1|+1' : 100,
+                'number2|1-100' : 12,//[1,100]之间的随机数，12仅仅用于确定生成结果为number类型；
+                'number3|1-100.5' : 12,//整数部分为[1,100]之间的随机数，5意思为5位随机小数；
+                'number4|1-100.1-4' : 12,//整数部分为[1,100]之间的随机数，小数部分为[1,4]之间随机位数；
+                'number5|100.1-4' : 12,//整数不部分为100，小数部分为[1，4]之间随机位数
+                'number6|100.4' : 12,//整数部分为100，小数部分为4位随机小数；
+                'number7|10' : ['1-10'],
+            })
+        );
+        //属性值为布尔值
+        console.log(
+            Mock.mock({
+                'b1|1' : false,//随机布尔值，true或者false；false仅仅确定属性值
+                'b2|1-5' : false,//确定出现的概率，false为1/6，true为5/6;
+
+            })
+        );
+        //属性值为对象
+        console.log(
+            Mock.mock({
+                'num1|1-3' : {a : 1,b : 2,c : 3,d : 4,e : 5},//随机从所给对象中取出1到三个值返回新对象；顺序也不定；
+                'num2|3' : {a : 1,b : 2,c : 3,d : 4,e : 5},//随机取3个值；
+            })
+        );
+        // 属性值为数组
+        console.log(
+            Mock.mock({
+                'arr1|1' : [1,2,3,4,5],//随机选择一项数组内容并返回 若大于一则是重复生成多少次数组；
+                'arr2|1-3' : [1,2,3,4,5],//将数组随机重复1-3次；
+            })
+        );
+        //属性值为函数
+        console.log(
+            Mock.mock({
+                'return1' : function() {return 1},//执行函数并返回值；
+            })
+        );
+        //属性值为RegExp 正则表达式
+        console.log(
+            Mock.mock({
+                'reg1' : /[a-z][A-Z][0-9]/,//随机按正则规则生成数据；
+            })
+        )
+
+        //Mock.Random;
+        var Random = Mock.Random;
+        console.log(Random);
+
+        //1,Basic   基础类里的方法；
+            console.log(//随机生成布尔值
+                Random.boolean(),
+                Random.boolean(1,9,true),//true概率为0.1；
+            )
+            
+            console.log(//自然数
+                Random.natural(10,300),//传一个参数表示下限，两个参数表示范围；
+            )
+            console.log(//小数
+                Random.float(),//可传递四个参数，
+                Random.float(-10,10),//整数部分是-10到10；
+                Random.float(-10,10,2,5),//小时位数范围为2-5；
+            );
+            console.log(
+                Random.character(),
+                    //参数可选，4个，lower：a-z; upper:A-Z; number:0-9; symble:!@#$%^&*()[];不写参数默认4种都有
+                    //参数范围也可自己设置，'pws'表示从pws中随机
+            )
+            console.log(
+                Random.string(),//参数可选,length;min,max,poll:charter里面的4个参数；
+            )
+
+            console.log(
+                Random.range(1,10,3)//1-10，步长为3；最少需要一个参数；
+            )
+        //2,date   日期类里面的方法；
+            console.log(
+                Random.date()//参数可选，详见GitHub；
+            )
+
+        //3.image    图片里面的方法
+            console.log(
+                Random.image(),
+            );
+        var div = document.getElementsByTagName('div')[0];
+        function pic() {
+            var img = document.createElement('img');
+            img.src = Random.image();
+            div.appendChild(img);
+        }
+        //color  颜色类里面的方法
+        function color() {
+            var color = document.querySelector('.color');
+            color.style.background = Random.rgba();
+            
+        }
+        //paragraph:英文文本； cparagraph:中文文本 详情参考github
+
+    </script>
+</body>
+</html>

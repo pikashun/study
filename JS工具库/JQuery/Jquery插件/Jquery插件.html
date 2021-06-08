@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- jsonp    json with padding-->
+    <!-- jsonp每次的回调函数是根据时间戳生成，避免缓存影响数据的即使性，每次请求都会产生新的回调函数 -->
+    <!-- 带src属性或href属性的网络请求只能是get请求 -->
+    <button id="jsonp">jsonp</button>
+
+
+    <script src="./../DOM操作/特效/jquery-3.5.1.js"></script>
+    <script>
+        $('#jsonp').click(function() { 
+            $.ajax({
+                url : 'http://developer.duyiedu.com/edu/testJsonp',
+                type : 'post',
+                dataType : 'jsonp',
+                success : function(data) {
+                    console.log(data);
+                }
+            })
+        });
+        var myJsonp = {
+            ajax : function(option){
+                var url = option.url;
+                var dataType = option.dataType;
+                var targetProtocol = '';
+                var targetHost = '';
+                if(url.indexOf('http') == 0 || url.indexOf('https') == 0){
+                    var targetUrl = new URL(url);
+                    targetProtocol = targetUrl.protocol;
+                    targetHost = targetUrl.host;
+                }else{
+                    targetProtocol = location.protocol;
+                    targetHost = location.host;
+                }
+                if(dataType != 'jsonp'){
+                    return;
+                }else{
+                    var callback = 'cb' + Math.floor(Math.random() * 100000);
+                    window[callback] = option.success;
+                    var script = document.createElement('script');
+                    console.log(url.indexOf('?'));
+                    if(url.indexOf('?') > 0){
+                        script.src = url + '&callback=' + callback; 
+                    }else{
+                        script.src = url + '?callback=' + callback; 
+                    }
+                    document.head.append(script);
+                }
+            }
+        }
+        myJsonp.ajax({
+            url : 'http://developer.duyiedu.com/edu/testJsonp',
+            dataType : 'jsonp',
+            success : function(data) {
+                console.log(data);
+            }
+        })
+    </script>
+</body>
+</html>

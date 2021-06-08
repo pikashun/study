@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500px" height="500px"></canvas>
+    <script>
+        var can = document.getElementsByTagName('canvas')[0];
+        var ctx = can.getContext('2d');
+        var img = new Image();
+        img.src = './../../../../image/奇诺比奥.png'
+        img.onload = function() {
+            var bg = ctx.createPattern(img,'no-repeat')
+            //创建需要填充的背景图片，由于图片下载需要时间，所以需要onload之后再执行代码
+            //createPattern方法，添加纹理，可添加图片
+            ctx.save();
+            ctx.translate(100,100);
+            ctx.scale(0.2,0.2);
+            ctx.beginPath();
+            ctx.fillStyle = bg;
+            ctx.fillRect(0,0,1000,2000);
+            ctx.restore();
+        }
+    </script>
+</body>
+</html>

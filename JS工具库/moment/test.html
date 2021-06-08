@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./moment.js"></script>
+    <script src="./moment-with-locales.js"></script>
+    <script>
+        moment.locale('zh-cn');
+        console.log(moment);
+        console.log(moment().milliseconds(100).valueOf());
+        console.log(moment().dayOfYear().valueOf());
+        console.log(moment().dayOfYear(100));
+        console.log(moment().month());
+        console.log(moment().year());
+        console.log(moment().weekYear());
+        console.log(moment().isoWeeksInYear());
+        console.log(moment().add(30,'d'));
+        console.log(moment().add(7,'d').add(6,'M'));//可链式操作，也可直接传递对象，溢出不会冒泡，会变成最大的那一天；
+        console.log(moment().format()); 
+        console.log(moment([2008]).fromNow());//toNow为到今天的时间，单位为年；
+        console.log(moment([2008,8,10]).from(moment([2008,8,8])));//to为a到b的时间，单位为天；
+        console.log(moment().calendar());
+        console.log(moment().calendar([2021,3,1]));
+        console.log(moment().daysInMonth());
+        console.log(moment().isBefore(moment([2021,3,1]),'month'));//类似的还有isSame，isAfter;isSameOrBefore,isSameOrAfter
+        console.log(
+            moment('2020-10-29').isBetween('2020-10-21',undefined),
+        );
+        console.log(moment().isLeapYear());
+        console.log(moment.isMoment(moment()));
+        console.log(moment.isDate(new Date()));
+        console.log(moment.isMoment(new Date()));
+        moment.locale('en');
+        console.log(moment.locale());
+        var myMoment = moment();
+        myMoment.locale('ar-dz');
+        console.log(moment().format('LLLL'));
+        console.log(myMoment.format('LLLL'));
+        console.log(moment.months());
+        console.log(moment.monthsShort());
+        console.log(moment.weekdays());
+        console.log(moment.weekdaysShort());
+        console.log(moment.weekdaysMin());
+        console.log(
+            moment.localeData()
+        )
+        console.log(moment.duration({
+            seconds : 1,
+            minutes : 2,
+            hours : 3,
+            days : 4,
+            months : 6,
+            years : 7, 
+        }));
+        console.log(moment(),moment.duration());
+        moment.locale('zh-cn');
+        console.log(moment.duration(1,'minutes').humanize());
+        console.log(moment.duration(1,'minutes').humanize(true));
+        console.log(moment.duration(-1,'minutes').humanize(true));
+        console.log(moment.duration(1500).milliseconds());
+        console.log(moment.duration(1500).asMilliseconds());
+        var a = moment.duration(1,'d');
+        var b = moment.duration(3,'d');
+        console.log(a.add(b).days());
+        console.log(moment.duration().add(1,'d').days());
+        var testA = moment([2020,2,21,2,2,2]);
+        var testB = moment([2020,2,21,2,2,3]);
+        console.log(testA,testB);
+        console.log(moment.duration(testA.diff(testB)));
+        console.log(moment.duration(1500).as('seconds'));
+        console.log(testA.get('days'));
+    </script>
+</body>
+</html>

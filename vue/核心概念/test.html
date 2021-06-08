@@ -1,0 +1,47 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-04-17 00:46:23
+ * @LastEditTime: 2021-04-17 01:06:26
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \site\前端学习\笔记\vue\核心概念\test.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./../vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el : '#app',
+            data : {
+                title : 'pws',
+                age : 18
+            },
+            // render(h){
+            //     console.log('render');
+            //     return h('div',[
+            //         h('h1',`${this.title}`),
+            //         h('p',`${this.age}`)
+            //     ])
+            // }
+            template : `
+            <div id="app">
+                <h1>{{title}}</h1>
+                <p>{{age}}</p>
+            </div>`
+            //不写render时，会将template配置编译为render
+            //首先会看vue对象里面是否存在render方法，有则直接调用，
+            //不存在就去找是否有template配置，若存在则将此配置编译为render方法，
+            //若不存在此配置，则将DOM中查找相应的节点，将其变为模板
+            
+        })
+    </script>
+</body>
+</html>

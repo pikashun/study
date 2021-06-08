@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function biaobai(god, callback) {
+            console.log(`给${god}表白`);
+            setTimeout(() => {
+                if (Math.random() < 0.1) {
+                    callback(true);
+                }else{
+                    callback(false);
+                }
+            }, 1000);
+
+        }
+        biaobai('god1',function(result) {
+            console.log(result);
+        })
+    </script>
+</body>
+
+</html>

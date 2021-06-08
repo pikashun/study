@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="500px" height="500px" style="border: 1px solid #000;"></canvas>
+    <script>
+        const can = document.getElementsByTagName('canvas')[0];
+        const ctx = can.getContext('2d');
+        ctx.beginPath();
+        ctx.fillStyle = '#0ff';//仅作用在filltext上面
+        ctx.font = '30px Georgia';//作用在所有文字上面
+        ctx.strokeText('小彭同学',100,100);//准确的说是文字描边，font的值对两个都成立
+        ctx.fillText('小彭同学',200,200);//类似输入的文字
+    </script>
+</body>
+</html>

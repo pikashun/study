@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const symbolFor = (() => {
+            const gloab = {}
+            return function (name) {
+                if (gloab[name]) {
+                    console.log(gloab)
+                    return gloab[name];
+                } else {
+                    gloab[name] = Symbol(name);
+                    console.log(gloab);
+                    return gloab[name];
+                }
+            }
+        })()
+        const syb1 = symbolFor('abc');
+        const syb2 = symbolFor('abc');
+        const syb3 = symbolFor('bcd');
+        console.log(syb1 === syb2);
+    </script>
+</body>
+
+</html>

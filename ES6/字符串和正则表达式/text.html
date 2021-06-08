@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const text="𠮷"
+        console.log(text.length);
+        console.log('第一个码元',text.charCodeAt(0))
+        console.log('第二个码元',text.charCodeAt(1))
+        console.log('第一个码点',text.codePointAt(0))
+        console.log('第二个码点',text.codePointAt(1))//此方式依然不能正常输出码点    
+        
+        function is32bit(str,i) {
+            return str.codePointAt(i) > 0xffff ;
+        }
+        function getRealLength(str) {
+            let len = 0;
+            for(let i = 0;i < str.length;i++){
+                if(is32bit(str,i)){
+                    i++;
+                    console.log(2);
+                }
+                len ++
+            }
+            return len;
+        }
+        let str = 'q𠮷ui';
+        console.log(getRealLength('q𠮷ui'))
+        
+    </script>
+
+</body>
+</html>

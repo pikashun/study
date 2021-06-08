@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #0ff;
+        }
+        .target{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div draggable="true">
+
+    </div>
+    <div class="target"></div>
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+        div.ondragstart = function(e) {
+            console.log(e);//ondragstart是在鼠标开始移动时触发，触发一次。ondrag是在目标移动过程中触发，移动时一直触发
+            console.log(e.clientY);//开始时鼠标的纵坐标
+        }
+        div.ondragend = function(e) {
+            console.log('dragend');
+            console.log(e.clientY);//结束时鼠标的纵坐标
+        }
+        var target = document.getElementsByClassName('target')[0];
+        target.ondragenter = function() {
+            console.log('dragenter');
+        }
+        target.ondragover = function() {
+            console.log(1);
+        }
+    </script>
+</body>
+</html>

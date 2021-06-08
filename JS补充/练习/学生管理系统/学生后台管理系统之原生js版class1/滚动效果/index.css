@@ -1,0 +1,69 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+::-webkit-scrollbar {
+    width: 0;
+}
+.header {
+    height: 70px;
+    line-height: 70px;
+    color: #b3bcc5;
+    font-size: 14px;
+    background-color: #354457;
+}
+.logo {
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+.left-menu {
+    width: 200px;
+    background-color: #4d5e70;
+    color: #b3bcc5;
+    font-size: 14px;
+    line-height: 40px;
+    height: calc(100vh - 70px);
+    overflow-y: scroll;
+}
+a {
+    color: #b3bcc5;
+}
+.left-menu dd {
+    padding-left: 40px;
+}
+.left-menu dd a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.left-menu dt {
+    padding-left: 18px;
+    font-weight: bold;
+}
+.left-menu .menu-active {
+    background-color: #ddd;
+    color: #354457;
+}
+.menu-active a {
+    color: #354457;
+}
+#student-add {
+    min-height: 100%;
+}
+#student-list {
+    min-height: 100%;
+    /* background-color: aquamarine; */
+}
+
+.right-content {
+    position: absolute;
+    left: 200px;
+    top: 70px;
+    width: calc(100vw - 200px);
+    height: calc(100vh - 70px);
+    overflow-y: scroll;
+}

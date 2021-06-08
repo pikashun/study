@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500px" height="500px" ></canvas>
+    <script>
+        var can = document.getElementsByTagName('canvas')[0];
+        var ctx = can.getContext('2d');
+        ctx.beginPath();
+        var bg = ctx.createLinearGradient(0,0,500,500);//创建渐变色背景
+        bg.addColorStop(0,'#fff');//设置渐变色属性，即关键帧；
+        bg.addColorStop(0.1,'#0ff');
+        bg.addColorStop(0.4,'#ff0')
+        bg.addColorStop(1,'#f0f');
+        ctx.fillStyle = bg;//填充依然是从原点开始，渲染整个画布；
+        ctx.fillRect(0,0,400,400)
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Test {
+            a = 1
+            b = 2
+            c = 3;
+
+            print = () => {
+                console.log(this.a);
+            }
+            // 等同于以下写法
+            // constructor() {
+            //     this.print = () => {
+            //         console.log(this.a);
+            //     }
+            // }
+        }
+        const test = new Test();
+        const p = test.print;
+        p();
+    </script>
+</body>
+</html>

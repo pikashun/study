@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生管理系统</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <!-- 
+        开发者中心注册规则：
+            用户名只能为英文，不能为中文
+     -->
+    <div class="header">
+        <img src="./images/logo.png" alt="" class="logo">
+        <span>渡一教育</span>
+    </div>
+    <!-- left-menu: 左侧菜单栏 -->
+    <dl class="left-menu">
+        <dt>学生管理</dt>
+        <dd class="menu-active">
+            <a href="#student-list">学生列表</a>
+        </dd>
+        <dd>
+            <a href="#student-add">新增学生</a>
+        </dd>
+    </dl>
+    <!-- right-content: 右侧内容区 -->
+    <div class="right-content">
+        <!-- student-list: 学生列表 -->
+        <div id="student-list">
+            学生列表
+        </div>
+        <!-- studeng-add: 新增学生 -->
+        <div id="student-add">
+            <form id="student-add-form">
+                <div><label for="name">姓名</label><input type="text" id="name" name="name"></div>
+                <div>
+                    <label for="">性别</label>
+                    <!-- male: 男   female: 女 -->
+                    <input type="radio" id="male" name="sex" checked value="0"><label for="male" class="sex">男</label>
+                    <input type="radio" id="female" name="sex" value="1"><label for="female" class="sex">女</label>
+                </div>
+                <div><label for="email">邮箱</label><input type="text" id="email" name="email"></div>
+                <div><label for="number">学号</label><input type="text" id="number" name="sNo"></div>
+                <div><label for="birthYear">出生年</label><input type="text" id="birthYear" name="birth"></div>
+                <div><label for="phone">手机号</label><input type="text" id="phone" name="phone"></div>
+                <div><label for="address">住址</label><input type="text" id="address" name="address"></div>
+                <!-- student-add-btn：  学生-新增-按钮 -->
+                <div><label for=""></label><input type="submit" value="提交" class="btn" id="student-add-btn">
+                    <input type="reset" value="重置" class="btn">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+</html>

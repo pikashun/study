@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal {
+            constructor(type,name,age,sex) {
+                this.type = type;
+                this.name = name;
+                this.age = age;
+                this.sex = sex;
+            }
+
+            set age(age) {
+                if(typeof(age) !== 'number'){
+                    throw new TypeError('age must be a number');
+                }
+                if(age < 0){
+                    this._age = 0;
+                }
+                else if(age > 1000){
+                    this._age = 1000;
+                }else{
+                    this._age = age;
+                }
+            }
+
+        }
+        const a = new Animal('human','pws',20,'male');
+    </script>
+</body>
+</html>

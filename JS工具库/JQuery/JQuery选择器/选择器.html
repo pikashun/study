@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script src="./../../../../../jquery-3.5.1.js"></script>
+    <script>
+        $('ul li[title!=blue]');//title属性值不是blue的元素
+        $('ul li [title]|=css');//title属性值以css作为前缀，即css-
+        $('ul li[tilte^=color]');//title属性值以color开始
+        $('ul li[tilte$=color]');//title属性值以color结束
+        $('ul li[tilte*=cn]');//title属性值包含cn字符串
+        $('ul li[tilte~=cn]');//title属性值包含cn单词，前后有空格
+        $('ul li[tilte=color][name=cl]');//title属性值为colorname属性值为cl
+
+        // 过滤
+        $('ul li:eq(1)');//ul下面的第二个li元素
+        $('ul li:gt(1)');//ul下面的下标大于1的li元素
+        $('ul li:lt(1)');//ul下面的下标小于1的li元素
+        $('ul li:not(1)');//ul下面不包括下标为1的li元素
+        $('ul li:even');//ul下面的下标为偶数的li元素
+        $('ul li:odd');//ul下面的下标为奇数的li元素
+        $('ul li:first');//ul下面的第一个li元素
+        $('ul li:last');//ul下面的最后一个li元素
+        $(':root')//根标签
+        $(':header')//所有的h标签
+
+        // 子元素过滤
+        $('div p:first-child')//p元素必须是第一个标签
+        $('div span:first-of-type')//div下面依次寻找，第一个span元素
+                // last同理
+        $('div p:nth-child(2)')//第二个子元素，必须是p元素
+        $('div span:nth-of-type(2)')//div下面依次寻找，第2个span元素
+        $('div p:only-child')//div下面有且仅有一个p标签
+        $('div span:only-of-type')//div下面可以有其他元素。但span只能有一个
+        // 内容过滤选择器
+        $('div:contains(piksdhun)')//div且内容包含piksdhun
+        $('div:empty')//内容为空的div
+        $('div:has(p)')//含有p标签的div，包括后代元素
+        $('div:parent')//div的父元素
+        // 表单过滤选择
+        $(':button')//所有的按钮、包括input设置的button
+        $('input:checkbox')//input里面的type为checkbox的元素
+        
+
+
+
+
+    
+    </script>
+</body>
+</html>

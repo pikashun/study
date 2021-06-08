@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal {
+            constructor(type,name,age,sex) {
+                if(new.target === Animal){
+                    throw new TypeError('不能用Animal创建对象');
+                }
+                this.type = type;
+                this.name = name;
+                this.age = age;
+                this.sex = sex;
+            }
+            print() {
+                console.log(`【类型】：${this.type}`);
+                console.log(`【名字】：${this.name}`);
+                console.log(`【年龄】：${this.age}`);
+                console.log(`【性别】：${this.sex}`);
+            }
+
+        }
+        class Dog extends Animal {
+            loves = '骨头';
+            constructor(name,age,sex) {
+                super('狗',name,age,sex);
+            }
+            print() {
+                super.print();
+                console.log(`【喜欢】：${this.loves}`);
+            }
+        }
+        // const dog1 = new Animal('狗','xaioxiao',1,'male');
+        const dog = new Dog('xiaoxiao',1,'male');
+        dog.print();
+    </script>
+</body>
+</html>

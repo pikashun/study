@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script>
+        console.log($);
+        $(document).ready(function() {console.log('ready完成')})//ready事件在dom渲染完毕时触发；。而window的onload事件在整个页面渲染完毕之后，
+        window.onload = function() {console.log('load完成了')};//在整个页面渲染完毕之后；
+        document.addEventListener('DOMContentLoaded',function() {console.log('DOM内容加载完毕')});//和ready方法一样，但执行时间在ready之前；
+    </script> -->
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <ul id="ulID" class="ulClass">
+        <li>yellow</li>
+        <li>red</li>
+        <li name="li">green</li>
+    </ul>
+    <p class="text"></p>
+    <h1>标题</h1>
+    <script src="./../../../../../jquery-3.5.1.js"></script>
+    <script>
+        // 绑定事件
+        $('#btn').click(function() {
+            var div = $('<div></div>');
+            console.log(div);
+            div.css({
+                width:'100px',
+                height:'100px',
+                background:'red',
+            })
+            console.log(div);
+            div.appendTo('body');
+        });
+        //选择器;包含document.querySelectorAll这种选择方式，
+
+
+        // 链式操作,原理就是每次方法返回值为元素自身
+        $('.text').html('pikashun').css('border','1px solid #000').width(200).height(200).css('background','red');
+
+        //JQuery和原生JS选中元素的区别
+        var h1 = document.querySelector('h1');
+        var $h1 = $('h1');
+        console.log(h1 == $h1);//不相等,且h1不能使用JQuery的方法，$h1不能使用原生的方法；
+        console.log(h1);
+        console.log($h1);
+        // 原生转JQuery
+        $(h1).css('color','red');
+        // jQuery转原生
+        $h1[0].style.background = "lightblue"
+    </script>
+</body>
+</html>

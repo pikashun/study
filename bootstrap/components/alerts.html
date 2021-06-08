@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- integrity : 属性值为加密的哈希值，防止cdn的恶意请求 -->
+</head>
+<body>
+
+    <div class="container">
+        <!-- 提示框标题 ：  -->
+        <div class="alert alert-danger">danger</div>
+        <div class="alert alert-warning" role="alert">warning</div>
+        <div class="myAlert alert alert-primary alert-dismissible fade show">
+            <!-- 
+                此时关闭按钮是浮动的，文本为多行时，关闭按钮在右下角，若给父元素设置class="alert-dismissible"
+                增加fade show 打开关闭方式为淡入淡出
+             -->
+            可关闭的警告框Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi voluptates, perferendis sunt nulla reprehenderit, tenetur aliquid odio distinctio dolor recusandae natus fugit suscipit expedita similique, numquam eos molestiae molestias ipsum.
+            <button class="close" data-dismiss="alert">&times;</button>
+        </div>
+        <div class="alert alert-success pws-button fade show">通过按钮关闭的警告框</div>
+        <button class="close-button">close</button>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        // methods，通过其他形式关闭alert框
+        $('.close-button').click(function() {
+            $('.pws-button').alert('close');
+            $('.close-button').css({
+                'display' : 'none',
+            })
+        })
+        // events，
+        // close.bs.alert 触发alert关闭按钮的点击事件，仅模板样式有效，通过其他方式触发的事件无效
+        // closed.bs.alert 为警告框关闭之后触发的事件，在alert被删除之后，在页面重新渲染之前
+
+        $('.close-button').on('close.bs.alert',function() {
+            alert('触发alert关闭按钮点击事件');
+            console.log(2);
+        });
+        $('.myAlert').on('close.bs.alert',function() {
+            alert('即将关闭警告框');
+            console.log(3);
+        })
+        $('.myAlert').on('closed.bs.alert',function() {
+            alert('警告框已关闭')
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //新增的字符串的实例方法
+        //includes
+        const text = '小彭同学';
+        console.log(text.includes('同'));
+        console.log(text.includes('同',3));//默认从0开始查找，也可从指定位置开始查找
+
+        //startWith(*),是否以**开始，也可指定参数，从第几位开始
+        //startWidth(*),是否以*结尾
+        //repeat(*),重复指定次数
+        console.log(text.startsWith('小'));
+        console.log(text.startsWith('小',2));
+        console.log(text.endsWith('同学'));
+        console.log(text.repeat(3));
+
+        console.log('正则部分');
+        //y.粘连标记，匹配时，必须完全按照正则对象中的lastindex位置开始匹配，并且匹配位置必须是在lastindex位置
+        const text2 = 'Hello World!!';
+        const reg = /W\w+/y;
+        console.log(reg.test(text2));
+        reg.lastIndex = 6;
+        console.log(reg.test(text2));
+
+        console.log('模板字符串');
+        //可用来处理多行字符串以及字符串拼接
+        //`将字符串放在这里即可`
+        //js的变量用${}即可；
+        //可嵌套
+        const text3 =   `小彭同学
+思齐同学`;
+        console.log(text3)
+        const text4 = `也可用转义字符输出\${JS表达式}`
+        console.log(text4);
+
+        console.log('模板字符串标记')
+        const text5 =  String.raw`该字符串里的所有字符正常输出比如\n还有\t，${'\${}不可以'}`;
+        console.log(text5);
+
+        
+    </script>
+</body>
+</html>

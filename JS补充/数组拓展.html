@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        div{
+            text-align: center;
+            float: left;
+        }
+        select{
+            padding: 0;
+            width: 200px;
+            height: 300px;
+            border: 1px solid #000;
+
+        }
+        div.mid{
+            padding-top: 100px;
+            width: 50px;
+            margin: 0 50px;
+        }
+        li{
+            cursor: pointer;
+            text-align: left;
+            display: block;
+        }
+        button{
+            width: 50px;
+            height: 25px;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="left">
+        <h2>彭万顺喜欢</h2>
+            <select multiple>
+                <option>思齐</option>
+                <option>思齐同学</option>
+                <option>思齐呀</option>
+                <option>思齐同学啊</option>
+                <option>思齐思齐</option>
+            </select>
+    </div>
+    <div class="mid">
+        <button class="btn right">>></button>
+        <button class="btn allRight">>>|</button>
+        <button class="btn left"><<</button>
+        <button class="btn allLeft">|<<</button>
+    </div>
+    <div class="right">
+        <h2>彭万顺很喜欢</h2>
+        <select multiple>
+
+        </select>
+    </div>
+    <script>
+        var leftSelect = document.querySelector('div.left select');
+        var leftItem = leftSelect.getElementsByTagName('option');
+        var rightSelect = document.querySelector('div.right select');
+        var rightItem = rightSelect.getElementsByTagName('option');
+
+        var right = document.querySelector('.btn.right');
+        right.onclick = function() {
+        var leftItemArr = Array.prototype.slice.call(leftItem);
+            leftItemArr.forEach(function(elem) {
+                if(elem.selected){
+                    console.log(elem);
+                    rightSelect.appendChild(elem.parentElement.removeChild(elem)); 
+                }
+            })
+        }
+        var allRight = document.querySelector('.btn.allRight');
+        allRight.onclick = function() {
+            leftItem.selec
+        }
+    </script>
+</body>
+</html>

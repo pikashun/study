@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1，给jQuery对象本身扩展方法
+        2，给jQuery DOM对象扩展方法；
+     -->
+     <div></div>
+     <script src="./../DOM操作/特效/jquery-3.5.1.js"></script>
+     <script>
+        //  给jQuery对象本身扩展方法；
+         $.extend({
+             pws : function() {
+                 console.log()
+             }
+         });
+         $.pws();
+        //  给jQuery DOM对象扩展方法；
+        $.fn.extend({
+            changeColor : function(color) {
+                $(this).css({
+                    color : color?color:red,
+                });
+                return $(this);
+            }
+        })
+        $('div').changeColor('green');
+
+        $.fn.changSize = function() {
+            $(this).css(fontSize,50);
+            return $(this);
+        }
+        $.fn.drag = function(option) {
+            var option = option || {};
+            $(this).mousedown(function(event) {
+                var This = $(this); 
+                var l = This.offset().left;
+                var t = This.offset().top;
+                $(this).css({
+                    position : 'absolute',
+                    left : l,
+                    top : t,
+                });
+                var This = $(this);
+                var disX = event.pageX;
+                var disY = event.pageY;
+                $(document).mousemove(function(event) {
+                    var newLeft = event.pageX;
+                    var newTop = event.pageY;
+                    This.css({
+                        left : l + newLeft - disX,
+                        top : t + newTop - disY,
+                    })
+                    $(document).mouseup(function() {
+                        $(document).off();
+                    })
+                })
+            })
+        }
+        $('div').drag();
+     </script>
+</body>
+</html>

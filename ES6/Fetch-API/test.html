@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>请求</button>
+
+    <script>
+        const btn = document.querySelector('button');
+        btn.onclick = function () {
+            getData();
+        }
+        async function getData() {
+            const url = 'http://101.132.72.36:5100/api/local';
+            const config = {
+                method: 'GET',
+                mode : 'cors',
+            }
+            const request = new Request(url,config);
+            console.log(request);
+            try {
+                const result = await fetch(url, config);
+                console.log(result);
+                // const pro = result.json();
+                console.log(1);
+                console.log(result);
+            } catch (err) {
+                console.log(2);
+                console.log(err)
+            }
+        }
+        const a = fetch('http://101.132.72.36:5100/api/local');
+        console.log(a);
+        
+    </script>
+</body>
+
+</html>

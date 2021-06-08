@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- integrity : 属性值为加密的哈希值，防止cdn的恶意请求 -->
+    <style>
+        div div div{
+            background: #0ff;
+            border: 1px solid #000;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-1">第1列</div>
+            <div class="col-xl-1">第2列</div>
+            <div class="col-xl-1">第3列</div>
+            <div class="col-xl-1">第4列</div>
+            <div class="col-xl-1">第5列</div>
+            <div class="col-xl-1">第6列</div>
+            <div class="col-xl-1">第7列</div>
+            <div class="col-xl-1">第8列</div>
+            <div class="col-xl-1">第9列</div>
+            <div class="col-xl-1">第10列</div>
+            <div class="col-xl-1">第11列</div>
+            <div class="col-xl-1">第12列</div>
+            <div class="col-xl-12">占12列</div>
+            <div class="col-xl-6">占6列</div>
+            <div class="col-xl-8">占8列</div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-1">第1列</div>
+            <div class="col-sm-1">第2列</div>
+            <div class="col-sm-1">第3列</div>
+            <div class="col-sm-1">第4列</div>
+            <div class="col-sm-1">第5列</div>
+            <div class="col-sm-1">第6列</div>
+            <div class="col-sm-1">第7列</div>
+            <div class="col-sm-1">第8列</div>
+            <div class="col-sm-1">第9列</div>
+            <div class="col-sm-1">第10列</div>
+            <div class="col-sm-1">第11列</div>
+            <div class="col-sm-1">第12列</div>
+            
+        </div>
+        <!-- 等宽列 -->
+        <div class="row mt-5">
+            <div class="col">1</div>
+            <div class="col">2</div>
+            <div class="col">3</div>
+            <div class="w-100" style="border : none;"></div>
+            <div class="col">1</div>
+            <div class="col">2</div>
+            <div class="col">3</div>
+        </div>
+        <!-- col会自动算剩余空间然后均分 同时由于col的特点，就算屏幕尺寸很小也不会换行 -->
+        <div class="row mt-5">
+            <div class="col-sm-7">1</div>
+            <div class="col">2</div>
+            <div class="col">3</div>
+        </div>
+        <!-- 根据内容调整宽度 设置class="col-{breakpoint}-auto"-->
+        <div class="row mt-4">
+            <div class="col-md-auto">皮卡顺啊</div><!-- 屏幕尺寸大于中等中等屏幕，也就是768时根据内容调整宽度，小于此尺寸则独占一行 -->
+            <div class="col">自动计算剩余宽度</div>
+            <div class="col-lg-2">在大屏下，即992px占两列</div>
+        </div>
+        <!-- 所有尺寸下都占相同的列数 -->
+        <div class="row mt-3">
+            <div class="col-8">8列</div>
+            <div class="col-4">4列</div>
+
+        </div>    </div><!-- 宽度为100% -->
+    
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

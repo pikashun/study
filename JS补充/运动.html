@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            opacity: 0.4;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+        var obj = {top : 200,left : 200,width : 200,height : 200,opacity : 1};
+        var obj1 = {top : 0,left : 0,width : 100,height : 100,opacity : 0.4};
+
+        div.addEventListener('click',function() {
+            move(div,obj);
+        },false);
+        function move(elem,obj){
+            clearInterval(elem.timer);
+            elem.timer = setInterval(function() {
+                var count = 0;
+                var sum = 0;
+                for(var prop in obj){
+                    var target = obj[prop]
+                    var icur = parseFloat(getComputedStyle(elem)[prop]);  
+                    if(prop == 'opacity'){
+                        target *= 100;
+                        icur *= 100;
+                    }
+                    speed =  (target - icur)/7;
+                    if(prop == 'opacity'){
+                        if(Math.abs(speed) < 1){
+                            elem.style[prop] = target/100;
+                        }
+                        else{
+                            elem.style[prop] = parseFloat((icur + speed)/100);
+                        }
+                    }else{
+                        if(Math.abs(speed) < 1){
+                            elem.style[prop] = target + 'px';
+                        }else{
+                            elem.style[prop] = icur + speed + 'px';
+                        }
+                    }
+                    sum ++;
+                    if(target == icur){
+                        count++;
+                    } 
+                }
+                if(count == sum){
+                    clearInterval(elem.timer);
+                }
+
+            },30)
+        }
+
+    </script>
+</body>
+</html>

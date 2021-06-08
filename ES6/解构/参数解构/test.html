@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function print(obj) {
+            console.log(obj.name);
+            console.log(obj.age);
+            console.log(obj.sex);
+            console.log(obj.address.province);
+            console.log(obj.address.city);
+            // 这样书写很不方便
+        }
+        // 下面用解构的方式
+        function myPrint({name,age,sex,adderss:{province,city}}) {
+            console.log(name);
+            console.log(age);
+            console.log(sex);
+            console.log(province);
+            console.log(city);
+
+        }
+        const user = {
+            name : 'pws',
+            age : 24,
+            sex : 'male',
+            address : {
+                province : 'hubei',
+                city : 'xiaotao',
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="500px" height="500px" style="border: 1px solid #000;"></canvas>
+    <script>
+        const can = document.getElementsByTagName('canvas')[0];
+        const ctx = can.getContext('2d');
+        ctx.beginPath();
+        ctx.moveTo(100,100);
+        ctx.lineWidth = 20;
+        ctx.lineTo(200,100);
+        ctx.lineTo(100,200);
+        ctx.lineCap = 'round'//变化部分位超出尺寸的不部分 ,修改线条的两端；
+        ctx.lineJoin = 'round'//修改连接的部分；
+        ctx.stroke();
+
+
+
+    </script>
+</body>
+</html>

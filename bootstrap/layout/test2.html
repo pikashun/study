@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <style>
+        div div div{
+            background: #0ff;
+            border: 1px solid #000;
+            height: 25px;
+        }
+        .v-align{
+            background: chartreuse;
+            border: 1px solid #ff0;
+            height: 60px;
+            margin: 15px -15px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- integrity : 属性值为加密的哈希值，防止cdn的恶意请求 -->
+</head>
+<body>
+    <div class="container">
+        <!-- 混合排列或者组合模式 -->
+        <div class="row mt-5">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 col">第1列</div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 col">第2列</div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 col">第3列</div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 col">第4列</div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 col">第5列</div>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 col">第6列</div>
+
+        </div>
+        <!-- 对齐，在3.x版本中没有。这里利用的是弹性盒模型 -->
+        <!-- 
+            垂直对齐 ：行对齐在父元素里面设置，列对齐在自身设置
+                1，行的对齐方式
+                    align-items-start     顶对齐
+                    align-items-center    中间对齐
+                    align-items-end       底对齐
+                2，列的单独对齐方式
+                    align-self-start     顶对齐
+                    align-self-center    中间对齐
+                    align-self-end       底对齐
+                    
+         -->
+         <div class="row v-align align-items-center">
+             <div class="col">对齐方式：居中对齐</div>
+             <div class="col">对齐方式：居中对齐</div>
+             <div class="col">对齐方式：居中对齐</div>
+         </div>
+         <div class="row v-align">
+             <div class="col align-self-start">对齐方式：居中对齐</div>
+             <div class="col align-self-center">对齐方式：居中对齐</div>
+             <div class="col align-self-end">对齐方式：居中对齐</div>
+         </div>
+         <!-- 
+             水平对齐： 
+                justify-content-start
+                justify-content-center
+                justify-content-end
+                justify-content-around
+                justify-content-between
+        -->
+         <div class="row v-align justify-content-center align-items-center">
+            <div class="col-3">对齐方式：居中对齐</div>
+            <div class="col-3">对齐方式：居中对齐</div>
+            <div class="col-3">对齐方式：居中对齐</div>
+        </div>
+        <!-- 
+            列排序 ： 使用order-{breakpoint}-*
+            order默认值为0 按大小排列
+            order-first代表排在第一位
+            order-last代表排在最后一位
+         -->
+         <div class="row mt-3">
+             <div class="col">第1列</div>
+             <div class="col">第2列</div>
+             <div class="col order-first">第3列</div>
+             <div class="col">第4列</div>
+         </div>
+         <!-- 列偏移，使用offset-{breakpoint}-* -->
+         <div class="row mt-3">
+             <div class="col-md-3 col-lg-4">第1列</div>
+             <div class="col-md-3 offset-md-6">第2列</div>
+         </div>
+         <!-- 偏移一个格子，后面的所有格子都会偏移 -->
+         <div class="row mt-3">
+             <div class="col-md-3 offst-lg-3 offset-md-6">第1列</div>
+             <div class="col-md-3">第2列</div>
+         </div>
+         <!-- 
+             间距 ： 使用margin工具可以让列之间产生间距
+                    mr-{breakpoint}-auto   使右侧的列远离到最右边
+                    ml-{breakpoint}-auto   使左侧的列原离到最左边
+
+          -->
+          <div class="row mt-3">
+              <div class="col-md-4 mr-auto">第1列</div>
+              <div class="col-md-4">第2列</div>
+          </div>
+          <!-- 
+              嵌套 ：每一个列里面可以再继续放行
+           -->
+           <div class="row mt-3">
+               <div class="col-md-9">
+                   <div class="row">
+                       
+                   <div class="col-md-8 col-6">123</div>
+                   <div class="col-md-4 col-6">456</div>
+                   </div>
+               </div>
+               <div class="col-md-3">789</div>
+           </div>
+
+    </div>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-04-17 01:41:28
+ * @LastEditTime: 2021-06-02 13:34:09
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \site\前端学习\笔记\vue\组件\test.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="global"></div>
+    <div class="part"></div>
+    <script src="./../vue.js"></script>
+    <script>
+        let Mybutton = {
+            data() {
+                return {
+                    count : 0,
+                }
+            },
+            template : `<button @click="count++">点击了{{count}}</button>`
+        };
+        let Title = {
+            props : ["head1","head2"],
+            template : `
+            <div>
+                <h1>{{head1}}</h1>
+                <h2>{{head2}}</h2>
+            </div>
+                `
+        }
+        // Vue.component("MyButton",Mybutton);
+        const vm = new Vue({
+            components : {
+                Mybutton,
+            },
+            template : `
+
+            <div>
+                <Mybutton />
+                <Mybutton />
+                <Mybutton />
+                </div>
+            `
+        });
+        vm.$mount(".global")
+        const vm2 = new Vue({
+            components : {
+                Title,
+            },
+            template : `
+                <div>
+                    <Title head1="biaoti1" head2="biaoti2" />
+                </div>
+            `
+        }).$mount('.part')
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/fullpage.css">
+    <style>
+        h2{
+            font-size: 80px;
+            text-align: center;
+        }
+        #fp-nav ul li a span{
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="fullpage">
+        <div class="section">
+            <h2>第一页</h2>
+        </div>
+        <div class="section">
+            <h2>第二页</h2>
+        </div>
+        <div class="section">
+            <h2>第三页</h2>
+            <div class="slide">
+                <h2>第三页第一页</h2>
+            </div>
+            <div class="slide">
+                <h2>第三页第二页</h2>
+            </div>
+            <div class="slide">
+                <h2>第三页第三页</h2>
+            </div>
+        </div>
+        <div class="section">
+            <h2>第四页</h2>
+        </div>
+
+    </div>
+
+    <script src="./../DOM操作/特效/jquery-3.5.1.js"></script>
+    <script src="./dist/fullpage.js"></script>
+    <script>
+        $('#fullpage').fullpage({
+            sectionsColor : ['#FF0651','#00562A','#00A9E4','#FF7C43'],//配置块的颜色；
+            navigation : true,//设置左侧小圆点
+            navigationTooltips : ['1','2','3','4'],//设置小圆点鼠标移入显示的文字；
+
+        });
+    </script>
+</body>
+</html>

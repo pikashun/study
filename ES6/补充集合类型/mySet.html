@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            class MySet {
+                constructor(iterator = []) {
+                    if (typeof (iterator[Symbol.iterator]) !== 'function') {
+                        throw new Error(`参数${iterator}不是一个可迭代对象`)
+                    }
+
+                    this._data = [];
+
+                    for (const item of iterator) {
+                        this.add(item);
+                    }
+                }
+                add(data) {
+                    if (!this.has(data)) {
+                        this._data.push(data);
+                    }
+                }
+
+                has(data) {
+                    for (const item of this._data) {
+                        if (this.isEqual(item, data)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+                isEqual(elem1, elem2) {
+                    if (elem1 === 0 && elem2 === 0) {
+                        return true;
+                    }
+                    return Object.is(elem1, elem2);
+                }
+                delet(data) {
+                    for (let i = 0; i < this._data.length; i++) {
+                        if (data === this._data[i]) {
+                            console.log(this._data[i]);
+                            this._data.splice(i,1);
+                        }
+                    }
+                }
+                clear() {
+                    this._data.length = 0;
+                }
+                *[Symbol.itetator]() {
+                    for (const item of this._data) {
+                        yield item;
+                    }
+                }
+                forEach(callback) {
+                    for (const item of this._data) {
+                        callback(item,item,this);
+                    }
+                }
+
+            }
+            const s = new MySet([3, 2, 2, 1, 3]);
+            console.log(s);
+        </script>
+    </body>
+
+    </html>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numbers = ['a','b','c','d',[1,2,3]];
+        // 也可当作对象来操作
+        const {0:n1,3:n2} = numbers;
+        console.log(n1,n2);
+        // 更简单的解构方式
+        const [n3,n4] = numbers;//按照书写顺序，将numbers里的值赋值给变量
+        const [n5,,,n6] = numbers;//可留空，取想要的值
+        const [n7,,,,,n8 = 5];//未定义部分默认为undefined，也可使用默认值
+        const [n9,n10,,,[,n12,]]//也可嵌套
+        //也可嵌套对象，使用对象的解构方法；
+    </script>
+</body>
+</html>

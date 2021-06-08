@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            float: left;
+            width: 100px;
+            margin: 0 20px;
+            border: 1px solid #000;
+            min-height: 20px;
+        }
+
+        ul {
+            width: 60px;
+            padding: 0;
+            margin: 10px auto;
+        }
+
+        li {
+            list-style: none;
+            width: 60px;
+            height: 20px;
+            background: #0ff;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div>
+        <ul>
+
+        </ul>
+    </div>
+    <script>
+        var domtree;
+        var target = document.getElementsByTagName('li');
+        var div = document.getElementsByTagName('div');
+        for (var i = 0; i < target.length; i++) {
+            target[i].onmousedown = function () {
+                this.setAttribute('draggable', true);
+                this.ondragstart = function () {
+                    domtree = this;
+                };
+            }
+        }
+        for (var i = 0; i < div.length; i++) {
+            div[i].ondragover = function (e) {
+                e.preventDefault();
+            }
+            div[i].ondrop = function () {
+                this.appendChild(domtree);
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            width: 500px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="500px" height="300px"></canvas>
+    <script src="./js工具库/mock.js"></script>
+    <script src="./js工具库/jquery-3.5.1.js"></script>
+    <script>
+        Mock.mock(
+            './data',
+            {
+                data : {
+                    'v|100-200' : 12, 
+                }
+            }
+        )
+        var can = document.getElementsByTagName('canvas')[0];
+        var value = can.getContext('2d');
+        var i = 0;
+        value.moveTo(0, 300);
+
+
+        setInterval(function () {
+            $.ajax({
+                url: './data',
+                dataType: 'json',
+                success: function(data) {
+                    value.lineTo(5 * i,data.data.v);
+                    i++;
+                    value.stroke();
+            }
+            })
+        },200)
+
+        //Mock.mock(url,data);data为返回的对象
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //curry
+        //柯里化函数 ：固定某个函数的一些参数，得到该函数剩余参数的一个新函数，如果没有剩余参数，则调用
+        //在函数式编程中，柯里化最重要的作用就是把多参函数变为单参函数
+        function f(x,y,z) {
+            return (x + y) * z;
+        }
+        function curry(fn) {
+            var that = this;
+            console.log(arguments);
+            var args = Array.prototype.splice.call(arguments,1);
+            return function() {
+                var curArgs = Array.from(arguments);
+                totalArgs = args.concat(curArgs);
+                if(totalArgs.length >= fn.length){
+                    return(fn.apply(that,totalArgs));
+                }
+                else{
+                    totalArgs.unshift(fn);
+                    curry.apply(that,totalArgs);
+                }
+            }
+        }
+        var g = curry(f,1);
+        console.log(g);
+        var l = g(2);
+        console.log(l(3));
+
+    //     function pws() {
+            
+    //         return function() {
+    //             f(1,y,z);
+    //         }
+    //     }
+    //     console.log(pws(2,3));
+    // </script>
+</body>
+</html>

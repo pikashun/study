@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        line{
+            stroke: black;
+            stroke-width: 2;
+        }
+        polyline{
+            fill: none;/*取消填充 圆和矩形同样*/
+            stroke: #0ff;
+            stroke-width: 4px;
+        }
+    </style>
+</head>
+<body>
+    <svg width='500px' height='500px' style="border : 1px solid #000">
+        <line x1='100' y1='100' x2='200' y2='200'></line>
+        <rect width='100px' height='80px' x='0' y='0' rx='10' ry='20'></rect><!--自动填充-->
+        <circle r='50' cx='400' cy='400'></circle>
+        <ellipse rx='50' ry='30' cx='400' cy='100'></ellipse><!--椭圆-->
+        <polyline points='0 400,20 450,80 500'></polyline><!--会自动闭合并填充-->
+    </svg>
+</body>
+</html>

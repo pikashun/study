@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var $ = {
+            ajaxJsonp : function(option) {
+                var url = option.url;
+                var type = option.type;
+                var dataType = option.dataType;
+                //判断目标是否同源，
+                //获取目标的域
+                var targetProtocol = '';
+                var targetHost = '';
+                if(url.indexOf('http://') == 0 || url.indexOf('https://') == 0){
+                    var target = new URL(url);
+                    targetProtocol = target.protocol;
+                    targetHost = target.host;
+                }else{
+                    targetProtocol = location.protocol;
+                    targetHost = location.host;
+                }
+                //判断是否同源；
+                if(dataType == 'jsonp'){
+                    if(targetHost === location.host && targetProtocol == location.protocol){
+                        
+                    }
+                    else{
+                        var callback = 'cb' + Math.floor(Math.random() * 1000000);
+                        window[callback] = option.success;
+                        var script = document.createElement('script');
+                        if(url.indexOf('?') > 0){
+                            script.src = url + '&callback=' + callback;
+                        }else{
+                            script.src = url + '?callback=' + callback;
+                        }
+                        script.id = callback;
+                        document.head.appendChild(script);
+                    }
+                }
+            }
+
+        }
+        $.ajaxJsonp({
+            url : 'http://developer.duyiedu.com/edu/testJsonp',
+            type : 'get',
+            dataType : 'jsonp',
+            success : function(data) {
+                console.log(data);
+            }
+        });
+
+
+        // function ajax(method,url,isAsync) {
+        //     var xhr = null;
+        //     if(window.XMLHttpRequest){
+        //         xhr = new XMLHttpRequest();
+        //     }else{
+        //         xhr = new ActiveXObject();//兼容IE6
+        //     }
+        //     xhr.open(method,url,isAsync);
+        //     xhr.onreadystatuchange = function(){
+        //         if(xhr.onreadyState === 4 && xhr.status === 200){
+        //             console.log(xhr.responseText);
+        //         }
+        //     } 
+        //     xhr.send();
+        // } 
+        // ajax('get','http://developer.duyiedu.com/edu/testAjax','true');
+    </script>
+</body>
+</html>

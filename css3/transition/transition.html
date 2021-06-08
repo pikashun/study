@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: width 2s,height 1s;
+            /* 可设置多个属性的过渡，用逗号分隔 */
+        }
+        div:hover{
+            width: 200px;
+            height: 200px;
+
+        }
+        .bazier{
+            width: 200px;
+            height: 100px;
+            border: 1px solid #008c8c;
+            border-radius: 10px;
+            background : #fff ;
+            transition-timing-function: cubic-bezier(0,0,1,1);
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <div class="bazier">
+
+    </div>
+</body>
+</html>

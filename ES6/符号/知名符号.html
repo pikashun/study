@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class A {
+            constructor() {
+                
+            }
+        }
+        const a = new A();
+        console.log(a instanceof A);
+        //以前只能使用instanceof，现在可以改写
+        Object.defineProperty(A,Symbol.hasInstance,{
+            value : function() {
+                console.log('可改写');
+            }
+        })//只能通过这种方式改写
+        //Symbol.hasInstance,此方法再Function.prototype上;
+        console.log(a instanceof A);
+        console.log(A[Symbol.hasInstance](a));
+    </script>
+</body>
+</html>

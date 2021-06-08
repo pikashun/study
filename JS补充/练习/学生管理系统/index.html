@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生管理系统</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="head">
+        <img src="./../../../../../image/奇诺比奥.png" alt="">
+        <span>小彭同学</span>
+    </div>
+    <div class="main">
+            <dl class="left-menu">
+                <dt>学生管理</dt>
+                <dd class="select"><a href="#student-list">学生列表</a></dd>
+                <dd><a href="#student-add">新增学生</a></dd>
+            </dl>
+        <div class="right-container">
+            <!-- 学生列表 -->
+            <div id="student-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>学号</td>
+                            <td>姓名</td>
+                            <td>性别</td>
+                            <td>邮箱</td>
+                            <td>年龄</td>
+                            <td>手机号</td>
+                            <td>住址</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div class="modal">
+                    <div class="modal-content">
+                        <h3>编辑信息</h3>
+                        <form id="student-edit-form">
+                            <div><label for="edit-name">姓名</label><input type="text" id="edit-name" name="name"></div>
+                            <div><label for="">性别</label><label class="sex" for="edit-meal">男</label><input type="radio" id="edit-meal" name="sex" value="0"><label class="sex" for="edit-femeal">女</label><input type="radio" id="edit-femeal" name="sex" value=1></div>
+                            <div><label for="edit-email">邮箱</label><input type="text" id="edit-email" name="email"></div>
+                            <div><label for="edit-sNo">学号</label><input  readonly id="edit-sNo" type="text" name="sNo"></div>
+                            <div><label for="edit-birthYear">出生年</label><input name="birth" id="edit-birthYear" type="text"></div>
+                            <div><label for="edit-tel">手机号</label><input name="phone" id="edit-tel" type="text"></div>
+                            <div><label for="edit-address">住址</label><input name="address" id="edit-address" type="text"></div>
+                            <div><label for=""></label><button class="btn edit-form-btn" value="submit">提交</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- 新增学生 -->
+            <div id="student-add">
+                <form id="student-add-form">
+                    <div><label for="name">姓名</label><input type="text" id="name" name="name"></div>
+                    <div><label for="">性别</label><label class="sex" for="meal">男</label><input type="radio" id="meal" name="sex" value="0"><label class="sex" for="femeal">女</label><input type="radio" id="femeal" name="sex" value=1></div>
+                    <div><label for="email">邮箱</label><input type="text" id="email" name="email"></div>
+                    <div><label for="sNo">学号</label><input name="sNo" id="sNo" type="text"></div>
+                    <div><label for="birthYear">出生年</label><input name="birth" id="birthYear" type="text"></div>
+                    <div><label for="tel">手机号</label><input name="phone" id="tel" type="text"></div>
+                    <div><label for="address">住址</label><input name="address" id="address" type="text"></div>
+                    <div><label for=""></label><button class="btn add-btn" value="submit">提交</button><button class="btn" value="reset">重置</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>

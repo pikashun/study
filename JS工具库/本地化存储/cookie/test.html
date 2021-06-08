@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script>
+        var dom = document.getElementsByTagName('div')[0];
+        var manegaCookie = {
+            set : function(name,value,data){
+                    document.cookie = name + '=' + value + '; max-age=' + data;
+            },
+            remove : function(name) {
+                this.set(name,'',0);
+            },
+            get : function(name) {
+                var cookieArr = document.cookie.split('; ');
+                for(var i =0;i < cookieArr.length;i++){
+                    var item = cookieArr[i].split('=');
+                    if(item[0] === name){
+                        return item[1];
+                    }
+                }
+            }
+        }
+        manegaCookie.set('left',100,10000);
+        var drag = {
+            int : function(dom) {
+                this.dom = dom;
+                this.BindEvent();
+                var l = manegaCookie.get('newLeft');
+                var t = manegaCookie.get('newTop');
+
+                this.dom.style.left = l? l + 'px'  : 0;
+                this.dom.style.top = t? t + 'px'  : 0;
+            },
+            BindEvent : function() {
+                this.dom.onmousedown = this.mouseDown.bind(this);
+            },
+            mouseDown : function(e) {
+                document.onmousemove = this.mouseMove.bind(this);
+                document.onmouseup = this.mouseUp.bind(this);
+                this.disX = e.clientX - this.dom.offsetLeft;
+                this.disY = e.clientY - this.dom.offsetTop;
+            },
+            mouseMove : function(e) {
+
+                this.newLeft = e.clientX - this.disX;
+                this.newTop = e.clientY - this.disY;
+                this.dom.style.left = this.newLeft + 'px';
+                this.dom.style.top = this.newTop + 'px';
+            },
+            mouseUp : function() {
+                document.onmousemove = null;
+                document.onmouseup = null;
+
+                manegaCookie.set('newLeft',this.newLeft,10000);
+                manegaCookie.set('newTop',this.newTop,10000);
+            }
+        }
+        drag.int(dom);
+    </script>
+</body>
+</html> 

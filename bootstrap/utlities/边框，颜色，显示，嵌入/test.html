@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- integrity : 属性值为加密的哈希值，防止cdn的恶意请求 -->
+    <style>
+        .row span {
+            width: 100px;
+            height: 30px;
+            background: #0ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-3 justify-content-between">
+            <!-- 
+                border为添加边框
+                border-0为去除边框 
+                border- + 定义的颜色名可修改颜色，
+                rounded :  圆角，可用rounded-top设置指定方向上的圆角；
+                bg-* : 设置整行的背景颜色
+            -->
+            <span class="border border-danger"></span>
+            <span class="border-top border-warning"></span>
+            <span class="border-right rounded"></span>
+            <span class="border-bottom"></span>
+            <span class="border-left"></span>
+        </div>
+        <div class="container mt-4">
+            <div class="row">
+                <!-- 
+                    颜色
+                    text-* ： 文本颜色
+                    bg-* ： 背景颜色
+                    渐变背景颜色需下载源文件修改
+                 -->
+                 <p style="text-align: center;" class="col-md-5 bg-warning text-light">小彭同学</p>
+                 <p class="text-success"><a href="">思齐同学</a></p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <!-- 
+                    display 
+                    3.x只有三种，block inline inline-block 
+                -->
+                <div class="col">
+                    <div class="bg-warning d-inline">d-inline</div>
+                    <div class="bg-info d-block">d-block</div>
+                    <div class="bg-success d-inline-block">d-inline-block</div>
+                    <div class="bg-danger flex">flex</div>
+                    <div class="bg-primary d-table">table</div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <!-- 
+                    在设定尺寸下显示一个元素，只在某一尺寸下显示，在其他尺寸下隐藏
+                    分为两个部分，
+                        1，比设定值小的尺寸隐藏 ，
+                        2，比设定值大的尺寸隐藏，
+                 -->
+                 <div class="col bg-primary d-none d-xl-block">超大屏显示</div>
+                 <div class="col bg-primary d-none d-lg-block d-xl-none">大屏显示</div>
+                 <div class="col bg-primary d-none d-md-block d-lg-none">中屏显示</div>
+                 <div class="col bg-primary d-none d-sm-block d-md-none">小屏显示</div>
+                 <div class="col bg-primary d-sm-none">超小屏显示</div>
+            </div>
+            <div class="row">
+                <!-- 在设定尺寸下隐藏一个元素，其他尺寸下显示 -->
+                <div class="mt-5 col bg-primary d-xl-none">超大屏隐藏</div>
+                <div class="mt-5 col bg-primary d-lg-none d-xl-block">大屏隐藏</div>
+                <div class="mt-5 col bg-primary d-md-none d-lg-block">中屏隐藏</div>
+                <div class="mt-5 col bg-primary d-sm-none d-md-block">小屏隐藏</div>
+                <div class="mt-5 col bg-primary d-none d-sm-block">超小屏隐藏</div>
+
+            </div>
+            <!-- 在打印中显示 -->
+            <div class="row">
+                <div class="col d-none d-print-block">小彭同学和思齐同学啊</div>
+            </div>
+        </div>
+        <!-- 
+            嵌入
+            下面是标准格式，用于内联框架，设置宽高比
+         -->
+        <div class="container">
+            <div class="embed-responsive">
+                <iframe src="" class="embed-responsive-16by9"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

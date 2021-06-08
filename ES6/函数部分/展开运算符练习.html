@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum(a,b,c,d) {
+            return a + b + c + d;
+        }
+        //这里是使用arguments实现柯里化
+
+        // function curry(fun) {
+        //     const arr = Array.prototype.slice.call(arguments).slice(1);
+        //     return function newSum() {
+        //         const nowArr = Array.prototype.slice.call(arguments);
+        //         const totalArr = arr.concat(nowArr);
+        //         if(totalArr.length === fun.length){
+        //             console.log(totalArr);
+        //             return fun.apply(null,totalArr);
+        //         }
+        //         else{
+        //             totalArr.unshift(fun);
+        //             return curry.apply(null,totalArr);
+        //         }
+        //     }
+        // }
+        
+        // 这里使用剩余参数实现柯里化
+        function curry(fun,...args) {
+            return function newSum(...newargs) {
+                const totalArr = [...args,...newargs];
+                if(totalArr.length === fun.length){
+                    return fun(...totalArr);
+                }
+                else{
+                    return curry(fun,...totalArr);
+                }
+            }
+        }
+        const newSum = curry(sum,1);
+        const mySum = newSum(2);
+        console.log(newSum(1,2,3));
+        console.log(mySum(1,2));
+        const lastSum = mySum(9);
+        console.log(lastSum(5));
+    </script>
+</body>
+</html>

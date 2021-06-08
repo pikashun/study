@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- integrity : 属性值为加密的哈希值，防止cdn的恶意请求 -->
+</head>
+
+<body>
+    <!-- 启用flex -->
+    <div class="container">
+        <div class="row mt-2">
+            <!-- class为row时默认为flex -->
+            <div class="col d-flex bg-info py-2">弹性盒子</div>
+            <div class="col d-inline-flex bg-primary py-2">弹性行盒</div>
+        </div>
+        <!-- 固定尺寸下为行盒 -->
+        <div class="row mt-2">
+            <div class="col d-md-flex bg-info py-2">弹性盒子</div>
+            <div class="col d-sm-inline-flex bg-primary py-2">弹性行盒</div>
+        </div>
+        <!-- 
+                子元素的排列方向，由父元素属性决定
+                    1，flex-row   : 水平正序
+                    2，flex-row-reverse ： 水平倒序
+                    3，flex-colum ： 垂直排列
+                    4，flex-colum-reverse ： 垂直倒序排列
+                    响应式时，breakpoint放在flex的后面
+
+             -->
+        <div class="row flex-md-row-reverse">
+            <div class="bg-primary border border-danger">第一列</div>
+            <div class="bg-primary border border-warning">第二列</div>
+            <div class="bg-primary border border-warning">第三列</div>
+        </div>
+        <!-- 
+                 子元素的对齐方式，在父元素上设置
+                    1，主轴上的对齐
+                        响应式放在justify-content后面，如justify-content-lg-start
+                        justify-content-start : 主轴起始位置对齐
+                        justify-content-end : 主轴结束位置对齐
+                        justify-content-center ： 居中对齐
+                        justify-content-between ： 左右两端对齐
+                        justify-content-around ： 左右分散对齐
+                    2，交叉轴上的对齐
+                        响应式布局 ： align-items-md-center
+                        align-items-start ： 交叉轴起始位置对齐
+                        align-items-end ： 交叉轴结束位置对齐
+                        align-items-center ： 交叉轴居中对齐
+                        align-items-baseline ： 基线对齐
+                        align-itemd-strech ： 若未设置高度，则拉伸至和父级高度一样
+              -->
+        <div class="row mt-2 justify-content-around">
+            <div class="bg-primary text-white border border-danger">第一列</div>
+            <div class="bg-primary text-white border border-warning">第二列</div>
+            <div class="bg-primary text-white border border-warning">第三列</div>
+        </div>
+        <!-- 
+            子元素对齐方式，在子元素上面设置
+            响应式设计 ： align-slef-md-center；
+                align-self-start : 顶对齐
+                align-self-end ： 底对齐
+                align-self-center ：居中对齐
+                align-self-baseline　：基线对齐
+                aling-self-strech ： 高度占满父元素
+         -->
+        <div class="row mt-3 bg-primary" style="height: 50px;">
+            <div class="bg-warning col-3 align-self-md-center">居中</div>
+            <div class="bg-warning col-3 align-self-md-center">居中</div>
+            <div class="bg-warning col-3 align-self-md-center">居中</div>
+        </div>
+        <!-- 
+             填充
+             自动均分剩余空间
+             响应式 ： flex-md-fill
+          -->
+        <div class="row mt-3">
+            <div class="bg-info border border-warning flex-fill">第一列</div>
+            <div class="bg-info border border-warning flex-md-fill">第二列</div>
+            <div class="bg-info border border-warning flex-lg-fill">第三列</div>
+        </div>
+        <!-- 
+            grow and shrink
+                响应式设置 ： flex-md-grow-1
+                flex-grow-0 ： 不参与剩余空间的分配，为1时参与均分，不能设置比例
+                flex-shrink-0 ： 超出时不会自动缩进，为1时参与，不能设置比例
+         -->
+        <div class="row mt-3">
+            <div class="bg-primary border border-info flex-grow-1">第一列</div>
+            <div class="bg-primary border border-info flex-grow-1">第二列</div>
+        </div>
+        <!-- 
+             间隙
+             通过margin实现，水平垂直方向都可以设置，没有响应式布局
+          -->
+        <div class="row">
+            <div class="bg-secondary border border-primary mr-auto">第1列</div>
+            <div class="bg-secondary border border-primary mr-auto">第2列</div>
+            <div class="bg-secondary border border-primary mr-auto">第3列</div>
+        </div>
+        <!-- 
+             wrap ： 设置是否换行，三个值
+                wrap ： 默认换行
+                nowtap ： 不换行
+                wrap-reverse ： 行反序
+                响应式设置 ： flex-md-wrap
+            order ： 排序，按数字顺序排序
+                order-* : *为数字
+                响应式设置 ： order-md-4；
+            align-content ： 针对多行文本布局，设置在父级身上
+                align-content-start ： 顶对齐
+                align-content-end ： 底对齐
+                align-content-center ： 居中对齐
+                align-content-between ： 上下两端对齐
+                align-content-around ： 分散对齐
+                align-contetnt-strech ： 未给高度时自动调整高度至父元素高度
+                响应式设计 ： align-content-md-center；
+         -->
+
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 'use strict'
+        function sum(a,b) {
+            console.log(arguments[0],arguments[1],arguments);
+            a = 3;
+            // console.log(arguments);
+        }
+        sum(1,2);
+        function sum(...myArr) {
+            console.log(myArr);
+        }
+        sum(1,2,3,4);
+    </script>
+</body>
+</html>

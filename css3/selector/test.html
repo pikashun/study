@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.container{
+            position: relative;
+        }
+        span{
+            display: inline-block;
+            font-size: 20px;
+            width: 100px;
+            text-align: center;
+            color: #fff;
+            background-color: lightseagreen;
+            border: 1px solid #000;
+        }
+        div div div{
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 28px;
+            border: 1px solid #ccc;
+            width: 313px;
+            height: 200px;
+        }
+        span:hover + div{
+            display: block;
+        }
+        div div div:hover{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <span>菜单1</span>
+            <div>内容1</div>
+            <span>菜单2</span>
+            <div>内容2</div>
+            <span>菜单3</span>
+            <div>内容3</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 设置视口 将页面的大小根据分辨率不同进行调节，以展示给用户的大小感觉上差不多 -->
+    <!-- initial-scale是设置视口缩放比例，写两个是为了兼容性 -->
+    <!-- 设置content='user-scalable=no'可以禁止用户的缩放操作 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 设置css的生效条件 -->
+    <link rel="stylesheet" media="(max-width : 375px)" href="./index.css"><!-- 设置只有在设备宽度小于375px式才生效 -->
+    <title>Document</title>
+    <style>
+        /*  */
+        @import 'index.css' screen and (max-width: 375px);/* 外部引用，等同于前面的写法 */
+        @import url('./css/bootstrap.css')(min-width : 600px);/* 外部引入方式，可省略media */
+        div{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #f00;
+            font-size: 14px;
+            overflow: visible;
+            white-space: nowrap;
+        }
+        @media (max-width: 375px) {
+            body{
+                width: 100px;
+                height: 100px;
+                background: #f40;
+            }
+        }/* 这段css代码只有在设备尺寸小于375px时才生效 逗号，表示或，not表示非，and表示与，可继续添加条件 */
+        /* 媒体查询里面的css样式权重和普通的一样 */
+
+/*   
+        css单位制值，
+        rem ： 相对HTML根标签的尺寸
+        em ： 相对自身的尺寸
+        px ： 相对屏幕像素
+        vw ： 相对于视口的宽度，视口被均分为100单位的vw
+        vh ： 相对于视口的高度，视口被均分为100单位的vh
+        vmax ： 相对于视口的宽度或者高度中较大的那一个， 其中最大的那个被均分为100个部分
+        vmin ： 相对于视口的宽度或者高度中较小的那一个， 其中最小的那个被均分为100个部分
+*/
+
+    </style>
+</head>
+<body>
+    <div>
+        皮卡顺啊皮卡顺啊皮卡顺啊皮卡顺啊皮卡顺啊皮卡顺啊皮卡顺啊
+    </div>
+</body>
+</html>

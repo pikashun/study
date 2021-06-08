@@ -1,0 +1,60 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-05-31 23:33:03
+ * @LastEditTime: 2021-06-01 13:34:03
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \site\前端学习\笔记\vue\初步了解\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>
+            标题: 商品管理系统
+        </h1>
+        <ul>
+            <li v-for="(item,index) in production">商品名称：{{item.name}}。库存：{{item.store?item.store:"无货"}}
+            <button @click="changestore(item,item.store + 1)">+</button>
+            <button @click="changestore(item,item.store - 1)">-</button>
+            <button @click="remove(index)">删除</button>
+            </li>
+            <p>{{total}}</p>
+        </ul>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el : "#app",
+            data : {production : [
+                {name : "小米",store : 9},
+                {name : "魅族",store : 10},
+                {name : "华为",store : 6}
+            ]},
+            computed : {
+                total(){
+                    return this.production.reduce((initial,item) => item.store + initial,0)
+                } 
+            },
+            methods : {
+                changestore(productor,newStore) {
+                    if(newStore < 0) {
+                        newStore = 0;
+                    }
+                    productor.store = newStore
+                },
+                remove(index) {
+                    this.production.splice(index,1);
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

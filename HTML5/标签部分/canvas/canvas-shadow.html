@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500px" height="500px">
+
+    </canvas>
+    <script>
+        const can = document.getElementsByTagName('canvas')[0];
+        const ctx = can.getContext('2d');
+        ctx.shadowColor = '#0ff';
+        ctx.shadowBlur = 20;
+        ctx.shadowOffsetX = 20;
+
+        ctx.strokeRect(100,100,200,100);
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="can" width="500px" height="500px">
+
+    </canvas><!-- css设置的不是画布的大小，实际画布大小需要在行间设置width，height属性 -->
+    <script>
+        var can = document.getElementById('can');
+        var ctx = can.getContext('2d');
+        //划线；
+        ctx.moveTo(100, 100);
+        ctx.lineWidth = 5;//设置线条的宽度，针对一整个图形，一笔画出来的都是一个图形
+        ctx.lineTo(100, 200);
+        ctx.lineTo(200, 200);
+        ctx.closePath();// 若之前的线条为一笔画的，则此方法让曲线闭合；
+        // ctx.fill();//此方法填充闭合区域
+        ctx.stroke();
+
+        ctx.beginPath();//重新定义起点开始绘制图像；
+        ctx.lineWidth = 1;
+        ctx.moveTo(400, 400);
+        ctx.lineTo(300, 300);
+        ctx.lineTo(400, 500);
+        ctx.closePath();
+        ctx.stroke();
+        //画矩形
+        ctx.rect(300,100,100,200);//矩形参数，按顺序是起点横坐标，起点纵坐标，矩形长，矩形宽
+        ctx.stroke();
+        ctx.strokeRect(400,50,50,60);//构建矩形并画出来
+        ctx.fillRect(20,20,20,30);//构建并画出填充的矩形
+        //清除画布
+        ctx.clearRect(0,0,500,500);//清除矩形区域内的内容；
+    </script>
+</body>
+
+</html>

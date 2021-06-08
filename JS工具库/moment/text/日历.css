@@ -1,0 +1,73 @@
+*{
+    color: #FFF;
+    margin: 0;
+    padding: 0;
+}
+.wrap{
+    box-sizing: border-box;
+    padding: 20px;
+    width: 360px;
+    height: 455px;
+    margin: 30px auto;
+    background: #1F1F1F;
+}
+body{
+    background: #332f2f;
+}
+.wrap .top{
+    border-bottom:1px solid #4C4C4C;
+    padding-bottom: 20px;
+}
+.wrap .top .time{
+    font-size: 35px;
+}
+.wrap .top .date span{
+    font-size: 14px;
+    color: #A6D8FF;
+    cursor: pointer;
+}
+.wrap .top .date span:hover{
+    color: #9B9B9B;
+}
+.wrap .bottom .control{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+.wrap .bottom .control span{
+    color: #DFDFDF;
+}
+.wrap .bottom .control span span{
+    padding-right : 20px;
+    margin-left: 2px;
+    cursor: pointer;
+}
+.wrap .bottom .week{
+    padding : 0 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.wrap .bottom .main ul{
+    text-align: center;
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+}
+.wrap .bottom .main ul li{
+    display: flex;
+    flex-direction: column;
+    width: 45px;
+}
+.wrap .bottom .main ul li span{
+    color: #EEEEEE;
+}
+.wrap .bottom .main ul li span:nth-child(2){
+    font-size: 12px;
+}
+.color span{
+    color : #727171 !important;
+}
+.active{
+    background : #0078d7;
+}

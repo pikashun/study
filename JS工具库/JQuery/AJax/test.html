@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="get">get请求</button>
+    <button id="ajaxget">ajax get请求</button>
+    <br>
+    <div id="login">
+        <div>
+            <label for="account">用户名</label>
+            <input type="text" name="account">
+        </div>
+        <div>
+            <label for="password">密码</label>
+            <input type="password" name="password">
+        </div>
+        <button id="loginBtn1">登录（post）</button>
+        <button id="loginBtn2">登录（ajaxpost）</button>
+
+    </div>
+
+
+
+
+
+    <script src="./../DOM操作/特效/jquery-3.5.1.js"></script>
+    <script>
+        $('#get').click(function() {
+            $.get('http://api.duyiedu.com/api/student/findAll',{appkey : 'pengwanshun_1612102591731'},function(data) {
+                console.log(data);
+
+            },'json');
+        })
+        $('#ajaxget').click(function() {
+            $.ajax({
+                type : 'get',
+                url : 'http://api.duyiedu.com/api/student/findAll',
+                data : {
+                    appkey : 'pengwanshun_1612102591731',
+                },//也可以是字符串；
+                dataType : 'json',
+                success : function(data) {
+                    console.log(data);
+                }
+            })
+        })
+        $('#loginBtn1').click(function() {
+            var username = $('#login input[name = account]').val();
+            var password = $('#login input[name = password]').val();
+            $.post('http://api.duyiedu.com/api/student/stuLogin',
+            {
+                appkey : 'pengwanshun_1612102591731',
+                account : username,
+                password : password,
+            },
+                function(data) {
+                    console.log(data);
+            },'json')
+        })
+        $('#loginBtn2').click(function() {
+            $.ajax({
+                type : 'post',
+                url : 'http://api.duyiedu.com/api/student/stuLogin',
+                data : {
+                    appkey : 'pengwanshun_1612102591731',
+                    account : $('#login input[name = account]').val(),
+                    password : $('#login input[name = password]').val()
+                },
+                success : function(data) {
+                    console.log(data);
+                },
+                error : function(data) {
+                    console.log(data.status);
+                },
+                dataType : 'jsonp' 
+            })
+        })
+        //$.getJson()和$.get()类似，返回值直接是JSON格式，不需要设置第三个参数；
+ 
+    </script>
+</body>
+</html>
